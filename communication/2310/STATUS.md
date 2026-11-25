@@ -21,9 +21,12 @@ A2-A4 were not run after the unmet A1 gate. A5's feature-reproduction branch was
 
 ## Next action
 
-The implementation machine's [wheel-install request](implementation-notes/2026-11-25-72bd08c5-vllm-metal-wheel.md) has been executed. See the [new handoff](mac-results/gate-a-72bd08c5/handoff.md) and [draft issue comment](mac-results/gate-a-72bd08c5/issue-comment-draft.md).
+**Implementation machine, 2026-11-25:** reviewed the `72bd08c5` A1 result; see [the A1 review and A2–A4 request](implementation-notes/2026-11-25-72bd08c5-a1-review-and-a2-a4-request.md).
 
-The next implementation task is to reconcile A1's cap-evidence criterion with the default cache-layout logging and investigate the teardown diagnostic. vLLM `distributed/parallel_state.py:2467` has a matching host-cache cleanup call; it is a source lead, not a proven cause. The Mac waits for the next operator task. Further tests use a new result directory and a fresh persisted `u`; Part B remains excluded until Gate A passes and the operator authorises it.
+- **A1 memory control is accepted on arithmetic.** cap × u = 30.60 GB, minus the logged KV budget of 28.57 GB, leaves 2.03 GB for model and overhead. That matches Step 0, so the denominator is the MLX cap. The brief's `metal_limit` log requirement is replaced by an amended criterion in the note.
+- **The teardown segfault is traced to upstream.** vLLM v0.30.0 added `torch.accelerator.empty_host_cache()` to `cleanup_dist_env_and_memory()`, and v0.27.1 does not have it. The main process survived. It may matter because the worker runs every lease in one process. Nothing is patched yet.
+
+**Mac:** when the operator instructs, run A2–A4 at `72bd08c5` with a fresh `u`, in `mac-results/gate-a-72bd08c5-a2a4/`. A4's two-model switch is the test that decides whether the teardown segfault matters. Part B remains excluded.
 
 Use the [Mac run brief](briefs/2026-11-25-mac-run-brief.md) together with the [operator's updates](briefs/2026-11-25-mac-run-updates.md). The update selects v0.30.0, requires the supplied pins paragraph in the report, and records the independent footprint-sampling adjustment.
 

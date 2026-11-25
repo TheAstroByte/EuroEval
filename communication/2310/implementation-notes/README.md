@@ -12,3 +12,4 @@ Then update the shared `../STATUS.md` next action.
 ## Notes
 
 - [2026-11-25 `72bd08c5`: install vllm-metal from its release wheel](2026-11-25-72bd08c5-vllm-metal-wheel.md). This answers the Gate A A1 failure at `cc594abe`.
+- [2026-11-25 `72bd08c5`: A1 review and A2–A4 request](2026-11-25-72bd08c5-a1-review-and-a2-a4-request.md). This answers `gate-a-72bd08c5`.
