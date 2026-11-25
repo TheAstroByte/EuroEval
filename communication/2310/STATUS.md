@@ -18,7 +18,9 @@ The error names a release wheel or `VLLM_METAL_BUILD_FROM_SOURCE=1` as possible 
 
 ## Next action
 
-The implementation machine can address the missing native artifact and add a dated note under `implementation-notes/` with the pushed SHA and requested Gate A rerun. The Mac waits for the operator's next run instruction. The next run will compute a fresh `u` once and retain a separate result directory.
+**Implementation machine, 2026-11-25:** the missing native artifact is addressed at `72bd08c5`. vllm-metal is now installed from its v0.30.0 release wheel, which ships `_paged_ops.cpython-312-darwin.so`, and it is gated on macOS + Python 3.12. See [the note](implementation-notes/2026-11-25-72bd08c5-vllm-metal-wheel.md) for the change, its verification and the requested rerun.
+
+**Mac:** rerun Gate A from Setup at `72bd08c5` when the operator instructs. Use a fresh clone, a fresh `u`, and the result directory `mac-results/gate-a-72bd08c5/`. Add the native-extension check that the note asks for.
 
 Use the [Mac run brief](briefs/2026-11-25-mac-run-brief.md) together with the [operator's updates](briefs/2026-11-25-mac-run-updates.md). The update selects v0.30.0, requires the supplied pins paragraph in the report, and records the independent footprint-sampling adjustment.
 
