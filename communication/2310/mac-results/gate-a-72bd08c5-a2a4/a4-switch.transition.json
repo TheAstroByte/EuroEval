@@ -1,0 +1,112 @@
+{
+  "first_engine_pid": 59622,
+  "shutdown_observed": true,
+  "after_exit_observed": true,
+  "captures": [
+    {
+      "label": "shutdown",
+      "started": 1795610309.8623302,
+      "processes": [
+        {
+          "pid": 59443,
+          "ppid": 59439,
+          "rss_kib": 19888,
+          "command": "uv run euroeval --evaluate-val-split --force --no-save-results --raise-errors --requires-safetensors --verbose --model Qwen/Qwen3-0.6B#no-thinking --model HuggingFaceTB/SmolLM2-360M-Instruct --dataset sst5 --num-iterations 1 --gpu-memory-utilization 0.5983"
+        },
+        {
+          "pid": 59445,
+          "ppid": 59443,
+          "rss_kib": 867344,
+          "command": "/Users/daniel/Developer/EuroEval-2310-72bd08c5/.venv/bin/python /Users/daniel/Developer/EuroEval-2310-72bd08c5/.venv/bin/euroeval --evaluate-val-split --force --no-save-results --raise-errors --requires-safetensors --verbose --model Qwen/Qwen3-0.6B#no-thinking --model HuggingFaceTB/SmolLM2-360M-Instruct --dataset sst5 --num-iterations 1 --gpu-memory-utilization 0.5983"
+        },
+        {
+          "pid": 59512,
+          "ppid": 59445,
+          "rss_kib": 9424,
+          "command": "/Users/daniel/Developer/EuroEval-2310-72bd08c5/.venv/bin/python -c from multiprocessing.resource_tracker import main;main(8)"
+        },
+        {
+          "pid": 59622,
+          "ppid": 59445,
+          "rss_kib": 33915264,
+          "command": "VLLM::EngineCore   "
+        }
+      ],
+      "B_announced_before": false,
+      "B_weights_loaded_before": false,
+      "files": [
+        {
+          "pid": 59443,
+          "file": "a4-switch.shutdown-59443.txt",
+          "exit": 0
+        },
+        {
+          "pid": 59445,
+          "file": "a4-switch.shutdown-59445.txt",
+          "exit": 0
+        },
+        {
+          "pid": 59512,
+          "file": "a4-switch.shutdown-59512.txt",
+          "exit": 0
+        },
+        {
+          "pid": 59622,
+          "file": "a4-switch.shutdown-59622.txt",
+          "exit": 0
+        }
+      ],
+      "footprint_mib": 35454.904296875,
+      "ended": 1795610310.071127,
+      "B_announced_after": false,
+      "B_weights_loaded_after": false
+    },
+    {
+      "label": "after-a-exit",
+      "started": 1795610310.6226618,
+      "processes": [
+        {
+          "pid": 59443,
+          "ppid": 59439,
+          "rss_kib": 19888,
+          "command": "uv run euroeval --evaluate-val-split --force --no-save-results --raise-errors --requires-safetensors --verbose --model Qwen/Qwen3-0.6B#no-thinking --model HuggingFaceTB/SmolLM2-360M-Instruct --dataset sst5 --num-iterations 1 --gpu-memory-utilization 0.5983"
+        },
+        {
+          "pid": 59445,
+          "ppid": 59443,
+          "rss_kib": 897808,
+          "command": "/Users/daniel/Developer/EuroEval-2310-72bd08c5/.venv/bin/python /Users/daniel/Developer/EuroEval-2310-72bd08c5/.venv/bin/euroeval --evaluate-val-split --force --no-save-results --raise-errors --requires-safetensors --verbose --model Qwen/Qwen3-0.6B#no-thinking --model HuggingFaceTB/SmolLM2-360M-Instruct --dataset sst5 --num-iterations 1 --gpu-memory-utilization 0.5983"
+        },
+        {
+          "pid": 59512,
+          "ppid": 59445,
+          "rss_kib": 9424,
+          "command": "/Users/daniel/Developer/EuroEval-2310-72bd08c5/.venv/bin/python -c from multiprocessing.resource_tracker import main;main(8)"
+        }
+      ],
+      "B_announced_before": false,
+      "B_weights_loaded_before": false,
+      "files": [
+        {
+          "pid": 59443,
+          "file": "a4-switch.after-a-exit-59443.txt",
+          "exit": 0
+        },
+        {
+          "pid": 59445,
+          "file": "a4-switch.after-a-exit-59445.txt",
+          "exit": 0
+        },
+        {
+          "pid": 59512,
+          "file": "a4-switch.after-a-exit-59512.txt",
+          "exit": 0
+        }
+      ],
+      "footprint_mib": 1156.3939666748047,
+      "ended": 1795610310.7101529,
+      "B_announced_after": false,
+      "B_weights_loaded_after": false
+    }
+  ]
+}

@@ -1,0 +1,483 @@
+{
+  "tested_commit": "72bd08c5cbebbb804f985ee192ffc8bc9b9579a8",
+  "gate_a": "PASS with known upstream shutdown diagnostic",
+  "a1": "Accepted by implementation-machine arithmetic amendment; not repeated",
+  "u": {
+    "available": 42701389824,
+    "cap": 55662788608,
+    "usable": 41627648000,
+    "u": 0.5983
+  },
+  "runs": [
+    {
+      "name": "a2-sst5",
+      "runtime": {
+        "exit": 0,
+        "stop_reason": null,
+        "leftover_owned_pids": [],
+        "peak_pressure": 1,
+        "swap_delta_mib": 0.0,
+        "min_available_gib": 7.8794708251953125,
+        "peak_footprint_mib": 36156.670013427734,
+        "started_at": 1795608782.758225,
+        "ended_at": 1795609136.830827,
+        "harness_error": null,
+        "cleanup_signals": [],
+        "footprints_are_independent": true
+      },
+      "safety_pass": true,
+      "arithmetic_pass": true,
+      "kv_budget_gb": [
+        31.27
+      ],
+      "remainder_gb": [
+        2.033046424166405
+      ],
+      "logged_util": [
+        0.6
+      ],
+      "logprobs": true,
+      "structured": true,
+      "fallback_count": 0,
+      "segfault_count": 1,
+      "segfaults_before_B_announcement": null,
+      "B_loaded": false,
+      "B_scores": 0,
+      "completed": [
+        "2"
+      ],
+      "failed_instances": [
+        0.0,
+        0.0
+      ],
+      "scores": [
+        "- Matthew's Correlation Coefficient: 40.61% \u00b1 2.75%",
+        "- Macro-average F1-score: 50.84% \u00b1 2.06%",
+        "- Matthew's Correlation Coefficient: 56.87% \u00b1 2.87%",
+        "- Macro-average F1-score: 60.52% \u00b1 2.44%"
+      ],
+      "canary": false,
+      "duration_s": 354.0726020336151
+    },
+    {
+      "name": "a2-hellaswag",
+      "runtime": {
+        "exit": 0,
+        "stop_reason": null,
+        "leftover_owned_pids": [],
+        "peak_pressure": 1,
+        "swap_delta_mib": 0.0,
+        "min_available_gib": 6.7206268310546875,
+        "peak_footprint_mib": 35994.81059265137,
+        "started_at": 1795609137.798437,
+        "ended_at": 1795609491.875274,
+        "harness_error": null,
+        "cleanup_signals": [],
+        "footprints_are_independent": true
+      },
+      "safety_pass": true,
+      "arithmetic_pass": true,
+      "kv_budget_gb": [
+        31.27
+      ],
+      "remainder_gb": [
+        2.033046424166405
+      ],
+      "logged_util": [
+        0.6
+      ],
+      "logprobs": true,
+      "structured": true,
+      "fallback_count": 0,
+      "segfault_count": 1,
+      "segfaults_before_B_announcement": null,
+      "B_loaded": false,
+      "B_scores": 0,
+      "completed": [
+        "2"
+      ],
+      "failed_instances": [
+        0.0,
+        0.0
+      ],
+      "scores": [
+        "- Matthew's Correlation Coefficient: 9.02% \u00b1 1.82%",
+        "- Accuracy: 29.45% \u00b1 1.18%",
+        "- Matthew's Correlation Coefficient: 19.97% \u00b1 3.17%",
+        "- Accuracy: 38.63% \u00b1 2.68%"
+      ],
+      "canary": false,
+      "duration_s": 354.0768368244171
+    },
+    {
+      "name": "a3-conll-zero-shot",
+      "runtime": {
+        "exit": 0,
+        "stop_reason": null,
+        "leftover_owned_pids": [],
+        "peak_pressure": 1,
+        "swap_delta_mib": 0.0,
+        "min_available_gib": 7.6922760009765625,
+        "peak_footprint_mib": 34966.35723876953,
+        "started_at": 1795609491.9314408,
+        "ended_at": 1795609616.00508,
+        "harness_error": null,
+        "cleanup_signals": [],
+        "footprints_are_independent": true
+      },
+      "safety_pass": true,
+      "arithmetic_pass": true,
+      "kv_budget_gb": [
+        31.27
+      ],
+      "remainder_gb": [
+        2.033046424166405
+      ],
+      "logged_util": [
+        0.6
+      ],
+      "logprobs": false,
+      "structured": true,
+      "fallback_count": 0,
+      "segfault_count": 1,
+      "segfaults_before_B_announcement": null,
+      "B_loaded": false,
+      "B_scores": 0,
+      "completed": [
+        "1"
+      ],
+      "failed_instances": [
+        0.0
+      ],
+      "scores": [
+        "- Micro-average F1-score without MISC tags: 35.84% \u00b1 1.99%",
+        "- Micro-average F1-score: 31.03% \u00b1 1.57%"
+      ],
+      "canary": false,
+      "duration_s": 124.0736391544342
+    },
+    {
+      "name": "a3-conll-few-shot",
+      "runtime": {
+        "exit": 0,
+        "stop_reason": null,
+        "leftover_owned_pids": [],
+        "peak_pressure": 1,
+        "swap_delta_mib": 0.0,
+        "min_available_gib": 6.3065185546875,
+        "peak_footprint_mib": 37752.09314727783,
+        "started_at": 1795609616.3942559,
+        "ended_at": 1795610224.47156,
+        "harness_error": null,
+        "cleanup_signals": [],
+        "footprints_are_independent": true
+      },
+      "safety_pass": true,
+      "arithmetic_pass": true,
+      "kv_budget_gb": [
+        31.27
+      ],
+      "remainder_gb": [
+        2.033046424166405
+      ],
+      "logged_util": [
+        0.6
+      ],
+      "logprobs": false,
+      "structured": true,
+      "fallback_count": 0,
+      "segfault_count": 1,
+      "segfaults_before_B_announcement": null,
+      "B_loaded": false,
+      "B_scores": 0,
+      "completed": [
+        "1"
+      ],
+      "failed_instances": [
+        0.0
+      ],
+      "scores": [
+        "- Micro-average F1-score without MISC tags: 39.11% \u00b1 2.15%",
+        "- Micro-average F1-score: 33.38% \u00b1 1.65%"
+      ],
+      "canary": false,
+      "duration_s": 608.0773041248322
+    },
+    {
+      "name": "a4-switch",
+      "runtime": {
+        "exit": 0,
+        "stop_reason": null,
+        "leftover_owned_pids": [],
+        "peak_pressure": 1,
+        "swap_delta_mib": 0.0,
+        "min_available_gib": 7.322357177734375,
+        "peak_footprint_mib": 35705.4041595459,
+        "started_at": 1795610225.1826692,
+        "ended_at": 1795610361.2578402,
+        "harness_error": null,
+        "cleanup_signals": [],
+        "footprints_are_independent": true
+      },
+      "safety_pass": true,
+      "arithmetic_pass": true,
+      "kv_budget_gb": [
+        31.27,
+        31.76
+      ],
+      "remainder_gb": [
+        2.033046424166405,
+        1.5430464241664048
+      ],
+      "logged_util": [
+        0.6,
+        0.6
+      ],
+      "logprobs": true,
+      "structured": true,
+      "fallback_count": 0,
+      "segfault_count": 2,
+      "segfaults_before_B_announcement": 1,
+      "B_loaded": true,
+      "B_scores": 2,
+      "completed": [
+        "4"
+      ],
+      "failed_instances": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scores": [
+        "- Matthew's Correlation Coefficient: 31.06%",
+        "- Macro-average F1-score: 41.02%",
+        "- Matthew's Correlation Coefficient: 56.41%",
+        "- Macro-average F1-score: 59.39%",
+        "- Matthew's Correlation Coefficient: 0.00%",
+        "- Macro-average F1-score: 14.79%",
+        "- Matthew's Correlation Coefficient: 0.00%",
+        "- Macro-average F1-score: 14.79%"
+      ],
+      "canary": false,
+      "duration_s": 136.07517099380493
+    },
+    {
+      "name": "a4-squad",
+      "runtime": {
+        "exit": 0,
+        "stop_reason": null,
+        "leftover_owned_pids": [],
+        "peak_pressure": 1,
+        "swap_delta_mib": 0.0,
+        "min_available_gib": 9.023422241210938,
+        "peak_footprint_mib": 35556.435066223145,
+        "started_at": 1795610361.311593,
+        "ended_at": 1795610633.392009,
+        "harness_error": null,
+        "cleanup_signals": [],
+        "footprints_are_independent": true
+      },
+      "safety_pass": true,
+      "arithmetic_pass": true,
+      "kv_budget_gb": [
+        31.27
+      ],
+      "remainder_gb": [
+        2.033046424166405
+      ],
+      "logged_util": [
+        0.6
+      ],
+      "logprobs": false,
+      "structured": false,
+      "fallback_count": 0,
+      "segfault_count": 1,
+      "segfaults_before_B_announcement": null,
+      "B_loaded": false,
+      "B_scores": 0,
+      "completed": [
+        "2"
+      ],
+      "failed_instances": [
+        0.0,
+        0.0
+      ],
+      "scores": [
+        "- F1-score: 59.31% \u00b1 0.82%",
+        "- Exact Match: 41.05% \u00b1 1.02%",
+        "- F1-score: 58.55% \u00b1 1.72%",
+        "- Exact Match: 44.44% \u00b1 1.62%"
+      ],
+      "canary": false,
+      "duration_s": 272.0804159641266
+    },
+    {
+      "name": "a4-cnn-dailymail",
+      "runtime": {
+        "exit": 0,
+        "stop_reason": null,
+        "leftover_owned_pids": [],
+        "peak_pressure": 1,
+        "swap_delta_mib": 0.0,
+        "min_available_gib": 8.4913330078125,
+        "peak_footprint_mib": 36820.389152526855,
+        "started_at": 1795610633.437166,
+        "ended_at": 1795613363.533947,
+        "harness_error": null,
+        "cleanup_signals": [],
+        "footprints_are_independent": true
+      },
+      "safety_pass": true,
+      "arithmetic_pass": true,
+      "kv_budget_gb": [
+        31.27
+      ],
+      "remainder_gb": [
+        2.033046424166405
+      ],
+      "logged_util": [
+        0.6
+      ],
+      "logprobs": false,
+      "structured": false,
+      "fallback_count": 0,
+      "segfault_count": 1,
+      "segfaults_before_B_announcement": null,
+      "B_loaded": false,
+      "B_scores": 0,
+      "completed": [
+        "2"
+      ],
+      "failed_instances": [
+        0.0,
+        0.0
+      ],
+      "scores": [
+        "- ChrF3++: 41.58% \u00b1 0.25%",
+        "- ChrF4++: 44.96% \u00b1 0.23%",
+        "- ChrF3++: 41.40% \u00b1 0.64%",
+        "- ChrF4++: 43.68% \u00b1 0.70%"
+      ],
+      "canary": false,
+      "duration_s": 2730.096781015396
+    },
+    {
+      "name": "a4-canary",
+      "runtime": {
+        "exit": 0,
+        "stop_reason": null,
+        "leftover_owned_pids": [],
+        "peak_pressure": 1,
+        "swap_delta_mib": 0.0,
+        "min_available_gib": 10.834228515625,
+        "peak_footprint_mib": 34035.965240478516,
+        "started_at": 1795613363.604513,
+        "ended_at": 1795613399.684993,
+        "harness_error": null,
+        "cleanup_signals": [],
+        "footprints_are_independent": true
+      },
+      "safety_pass": true,
+      "arithmetic_pass": true,
+      "kv_budget_gb": [
+        31.27
+      ],
+      "remainder_gb": [
+        2.033046424166405
+      ],
+      "logged_util": [
+        0.6
+      ],
+      "logprobs": false,
+      "structured": false,
+      "fallback_count": 0,
+      "segfault_count": 1,
+      "segfaults_before_B_announcement": null,
+      "B_loaded": false,
+      "B_scores": 0,
+      "completed": [
+        "1"
+      ],
+      "failed_instances": [],
+      "scores": [],
+      "canary": true,
+      "duration_s": 36.080480098724365
+    }
+  ],
+  "schema_audits": {
+    "zero-shot": {
+      "unique": 252,
+      "invalid_json": 0,
+      "schema_violation": 0
+    },
+    "few-shot": {
+      "unique": 1608,
+      "invalid_json": 0,
+      "schema_violation": 0
+    }
+  },
+  "switch_footprint_pass": true,
+  "switch_footprint_drop_mib": 34298.510330200195,
+  "interrupt": {
+    "name": "a4-interrupt",
+    "runtime": {
+      "exit": 1,
+      "stop_reason": "operator signal 2",
+      "leftover_owned_pids": [],
+      "peak_pressure": 1,
+      "swap_delta_mib": 0.0,
+      "min_available_gib": 10.069183349609375,
+      "peak_footprint_mib": 36031.06059265137,
+      "started_at": 1795613401.48013,
+      "ended_at": 1795613573.840655,
+      "harness_error": null,
+      "cleanup_signals": [
+        {
+          "signal": "SIGINT",
+          "t": 1795613571.5119948,
+          "pids": [
+            74990,
+            74991,
+            75083,
+            75124
+          ]
+        }
+      ],
+      "footprints_are_independent": true
+    },
+    "safety_pass": false,
+    "arithmetic_pass": true,
+    "kv_budget_gb": [
+      31.27
+    ],
+    "remainder_gb": [
+      2.033046424166405
+    ],
+    "logged_util": [
+      0.6
+    ],
+    "logprobs": false,
+    "structured": false,
+    "fallback_count": 0,
+    "segfault_count": 1,
+    "segfaults_before_B_announcement": null,
+    "B_loaded": false,
+    "B_scores": 0,
+    "completed": [],
+    "failed_instances": [],
+    "scores": [],
+    "canary": false,
+    "duration_s": 172.3605251312256,
+    "operator_action": {
+      "harness_pid": 74986,
+      "generation_progress_observed": true,
+      "signal_target": "harness PID, not child process group",
+      "signal_count": 1,
+      "signal_time": 1795613570.707128
+    },
+    "cancellation_pass": true
+  },
+  "part_b": "NOT RUN",
+  "issue_comment": "DRAFT ONLY"
+}

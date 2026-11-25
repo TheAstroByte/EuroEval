@@ -1,0 +1,59 @@
+{
+  "name": "a4-interrupt",
+  "runtime": {
+    "exit": 1,
+    "stop_reason": "operator signal 2",
+    "leftover_owned_pids": [],
+    "peak_pressure": 1,
+    "swap_delta_mib": 0.0,
+    "min_available_gib": 10.069183349609375,
+    "peak_footprint_mib": 36031.06059265137,
+    "started_at": 1795613401.48013,
+    "ended_at": 1795613573.840655,
+    "harness_error": null,
+    "cleanup_signals": [
+      {
+        "signal": "SIGINT",
+        "t": 1795613571.5119948,
+        "pids": [
+          74990,
+          74991,
+          75083,
+          75124
+        ]
+      }
+    ],
+    "footprints_are_independent": true
+  },
+  "safety_pass": false,
+  "arithmetic_pass": true,
+  "kv_budget_gb": [
+    31.27
+  ],
+  "remainder_gb": [
+    2.033046424166405
+  ],
+  "logged_util": [
+    0.6
+  ],
+  "logprobs": false,
+  "structured": false,
+  "fallback_count": 0,
+  "segfault_count": 1,
+  "segfaults_before_B_announcement": null,
+  "B_loaded": false,
+  "B_scores": 0,
+  "completed": [],
+  "failed_instances": [],
+  "scores": [],
+  "canary": false,
+  "duration_s": 172.3605251312256,
+  "operator_action": {
+    "harness_pid": 74986,
+    "generation_progress_observed": true,
+    "signal_target": "harness PID, not child process group",
+    "signal_count": 1,
+    "signal_time": 1795613570.707128
+  },
+  "cancellation_pass": true
+}
