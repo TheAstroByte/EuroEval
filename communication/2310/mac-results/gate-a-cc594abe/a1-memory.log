@@ -1,0 +1,150 @@
+Started EuroEval run.
+
+Fetching model configurations:   0%|——————————| 0/1 [00:00<?, ?it/s][DEBUG] 2026-11-25 12:24:58 · Using the model cache directory '.euroeval_cache/model_cache/Qwen--Qwen3-0.6B' for the model 'Qwen/Qwen3-0.6B'.
+[DEBUG] 2026-11-25 12:25:02 · The model 'Qwen/Qwen3-0.6B#no-thinking' was identified by the VLLMModel benchmark module.
+
+Fetching model configurations: 100%|▰▰▰▰▰▰▰▰▰▰| 1/1 [00:05<00:00,  5.78s/it]
+
+Loading the model Qwen/Qwen3-0.6B...
+[DEBUG] 2026-11-25 12:25:08 · Beginning-of-sequence token was not set, but detected it as '<s>' with ID 128245.
+[DEBUG] 2026-11-25 12:25:08 · Detected generative type 'INSTRUCTION_TUNED' for model 'Qwen/Qwen3-0.6B'
+W1125 12:25:15.241000 50442 torch/_library/triton.py:53] Triton not available, find_triton_kernels = []
+Metal: chunked prefill enabled (paged attention), max_num_batched_tokens=8192
+Metal memory: 68.7GB total, 34.6GB available
+MLX device set to: Device(gpu, 0)
+mx.metal.device_info is deprecated and will be removed in a future version. Use mx.device_info instead.
+Set Metal wired_limit to 51.8 GB
+PyTorch device set to: mps
+MLX-LM model loaded in 0.60s: Qwen/Qwen3-0.6B
+Paged attention: using --gpu-memory-utilization=0.48
+Upstream cache layout: reporting 24.66 GB KV budget; runtime allocation deferred until vLLM KVCacheConfig
+Process EngineCore:
+Traceback (most recent call last):
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1370, in run_engine_core
+    raise e
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1328, in run_engine_core
+    engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1085, in __init__
+    super().__init__(
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 145, in __init__
+    kv_cache_config = self._initialize_kv_caches(vllm_config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 354, in _initialize_kv_caches
+    self.model_executor.initialize_from_config(kv_cache_configs)
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 122, in initialize_from_config
+    self.collective_rpc("initialize_from_config", args=(kv_cache_configs,))
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 103, in collective_rpc
+    result = run_method(self.driver_worker, method, args, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/serial_utils.py", line 510, in run_method
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/worker/worker_base.py", line 349, in initialize_from_config
+    self.worker.initialize_from_config(kv_cache_config)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm_metal/v1/worker.py", line 251, in initialize_from_config
+    self.model_runner.initialize_kv_cache(kv_cache_config)
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm_metal/v1/model_runner.py", line 798, in initialize_kv_cache
+    self._cache_policy.initialize_kv_cache(kv_cache_config)
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm_metal/v1/cache_policy.py", line 481, in initialize_kv_cache
+    self._initialize_upstream_storage(kv_cache_config)
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm_metal/v1/cache_policy.py", line 523, in _initialize_upstream_storage
+    runtime.initialize_from_config(kv_cache_config, model_layer_names)
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm_metal/attention/runtime/sdpa.py", line 84, in initialize_from_config
+    self._cache = MetalPagedKVCache.from_upstream(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm_metal/attention/caches/kv_cache.py", line 102, in from_upstream
+    cache.dtype = cache.key_caches[0].dtype
+                  ~~~~~~~~~~~~~~~~^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm_metal/attention/caches/storage.py", line 52, in __getitem__
+    return get_ops().as_strided(
+           ^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm_metal/metal/__init__.py", line 232, in get_ops
+    raise RuntimeError(
+RuntimeError: Prebuilt native extension not found at /Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm_metal/metal/_paged_ops.cpython-312-darwin.so. Install a vllm-metal release wheel (which ships it prebuilt), or set VLLM_METAL_BUILD_FROM_SOURCE=1 to compile it from source (requires Xcode command-line tools).
+Traceback (most recent call last):
+  File "/Users/daniel/Developer/EuroEval-2310/src/euroeval/benchmark_modules/vllm.py", line 1855, in load_model
+    model = _create_wrapped(False)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/src/euroeval/benchmark_modules/vllm.py", line 1839, in _create_wrapped
+    return _create_llm_instance(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/src/euroeval/benchmark_modules/vllm.py", line 1945, in _create_llm_instance
+    return LLM(**llm_kwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 343, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 184, in from_engine_args
+    return cls(
+           ^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 109, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 122, in make_client
+    return SyncMPClient(
+           ^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 880, in __init__
+    super().__init__(
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+    wait_for_engine_startup(
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore': 1}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/bin/euroeval", line 10, in <module>
+    sys.exit(benchmark())
+             ^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/click/core.py", line 1569, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/click/core.py", line 1490, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/click/core.py", line 1353, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/click/core.py", line 907, in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/src/euroeval/cli.py", line 384, in benchmark
+    benchmarker.benchmark(model=list(model), served_model=served_model)
+  File "/Users/daniel/Developer/EuroEval-2310/src/euroeval/benchmarker.py", line 640, in benchmark
+    raise load_error
+  File "/Users/daniel/Developer/EuroEval-2310/src/euroeval/benchmarker.py", line 1966, in _prepare_pending_benchmarks
+    loaded_model = load_model(
+                   ^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/src/euroeval/model_loading.py", line 173, in load_model
+    model = model_class(
+            ^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/src/euroeval/benchmark_modules/vllm.py", line 232, in __init__
+    model = load_model(
+            ^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/src/euroeval/benchmark_modules/vllm.py", line 1857, in load_model
+    model = _handle_model_load_error(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310/src/euroeval/benchmark_modules/vllm.py", line 2271, in _handle_model_load_error
+    raise InvalidModel(msg) from error
+euroeval.exceptions.InvalidModel: The model 'Qwen/Qwen3-0.6B' could not be loaded, but vLLM did not mention exactly what happened. Since you're running in verbose mode, you might see a descriptive error above already. Note however that if the error message urges you to use the attention backend 'FLEX_ATTENTION', please try setting it to 'TRITON_ATTN' instead using the `--attention-backend` CLI argument, as that often solves the issue, whereas 'FLEX_ATTENTION' usually doesn't. If you don't see any descriptive error above, then you can try re-running the benchmark with the environment variable `FULL_LOG` set to `1` to see the full stack trace. E.g., `FULL_LOG=1 euroeval --model Qwen/Qwen3-0.6B`.

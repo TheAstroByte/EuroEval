@@ -1,0 +1,1 @@
+RuntimeError: Prebuilt native extension not found at /Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm_metal/metal/_paged_ops.cpython-312-darwin.so. Install a vllm-metal release wheel (which ships it prebuilt), or set VLLM_METAL_BUILD_FROM_SOURCE=1 to compile it from source (requires Xcode command-line tools).

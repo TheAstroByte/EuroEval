@@ -1,0 +1,651 @@
+{
+  "s2-A-sst5": {
+    "start": "2026-11-25 07:47:28+00:00",
+    "end": "2026-11-25 07:54:33.058701+00:00",
+    "exit": null,
+    "time_s": 424.95,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.9, usable_metal=50.10GB, model_memory=1.19GB, overhead=0.92GB, kv_budget=47.98GB, per_block_bytes=1835008, num_blocks=26147, max_tokens_cached=418352",
+      "KV cache: 47980.0 MB (28 layers, 26147 blocks, 16 tokens/block)"
+    ],
+    "scores": [],
+    "logprobs_requested": true,
+    "structured_requested": true,
+    "fallback": true,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [],
+    "completed_benchmarks": [],
+    "memory": {
+      "samples": 203,
+      "peak_aggregate_rss_mib": 4116.28125,
+      "min_available_gib": 0.3134002685546875,
+      "peak_pressure": 4,
+      "swap_start_mib": 5948.62,
+      "swap_end_mib": 15964.06,
+      "swap_delta_mib": 10015.439999999999,
+      "swap_peak_increase_mib": 11460.07
+    }
+  },
+  "s2-capped-A-canary": {
+    "start": "2026-11-25 08:38:03+00:00",
+    "end": "2026-11-25 08:38:37+00:00",
+    "exit": "0",
+    "time_s": 34.08,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.15, usable_metal=8.35GB, model_memory=1.19GB, overhead=0.84GB, kv_budget=6.32GB, per_block_bytes=1835008, num_blocks=3443, max_tokens_cached=55088",
+      "KV cache: 6317.9 MB (28 layers, 3443 blocks, 16 tokens/block)"
+    ],
+    "scores": [],
+    "logprobs_requested": false,
+    "structured_requested": false,
+    "fallback": false,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [
+      "Contamination canary collected for 'Qwen/Qwen3-0.6B': status=collected, count=256."
+    ],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [],
+    "completed_benchmarks": [
+      "1"
+    ],
+    "memory": {
+      "samples": 17,
+      "peak_aggregate_rss_mib": 3644.765625,
+      "min_available_gib": 25.070449829101562,
+      "peak_pressure": 1,
+      "swap_start_mib": 10552.44,
+      "swap_end_mib": 10552.44,
+      "swap_delta_mib": 0.0,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 10917.599060058594,
+    "peak_footprint_time": "2026-11-25 08:38:32+00:00",
+    "peak_footprint_pids": {
+      "37220": 9882.84693145752,
+      "37118": 1034.7521286010742
+    }
+  },
+  "s2-capped-A-cnn-dailymail": {
+    "start": "2026-11-25 08:20:50+00:00",
+    "end": "2026-11-25 08:38:03+00:00",
+    "exit": "0",
+    "time_s": 1033.48,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.15, usable_metal=8.35GB, model_memory=1.19GB, overhead=0.84GB, kv_budget=6.32GB, per_block_bytes=1835008, num_blocks=3443, max_tokens_cached=55088",
+      "KV cache: 6317.9 MB (28 layers, 3443 blocks, 16 tokens/block)"
+    ],
+    "scores": [
+      "- ChrF3++: 41.28% \u00b1 0.29%",
+      "- ChrF4++: 44.53% \u00b1 0.29%",
+      "- ChrF3++: 40.85% \u00b1 0.67%",
+      "- ChrF4++: 43.10% \u00b1 0.74%"
+    ],
+    "logprobs_requested": false,
+    "structured_requested": false,
+    "fallback": false,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [
+      0.0,
+      0.0
+    ],
+    "completed_benchmarks": [
+      "2"
+    ],
+    "memory": {
+      "samples": 504,
+      "peak_aggregate_rss_mib": 3964.984375,
+      "min_available_gib": 22.109130859375,
+      "peak_pressure": 1,
+      "swap_start_mib": 10728.44,
+      "swap_end_mib": 10552.44,
+      "swap_delta_mib": -176.0,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 14361.349586486816,
+    "peak_footprint_time": "2026-11-25 08:24:54+00:00",
+    "peak_footprint_pids": {
+      "31908": 13118.440704345703,
+      "31846": 1242.9088821411133
+    }
+  },
+  "s2-capped-A-conll-en": {
+    "start": "2026-11-25 08:10:10+00:00",
+    "end": "2026-11-25 08:17:04+00:00",
+    "exit": "0",
+    "time_s": 414.3,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.15, usable_metal=8.35GB, model_memory=3.68GB, overhead=0.84GB, kv_budget=3.83GB, per_block_bytes=1835008, num_blocks=2086, max_tokens_cached=33376",
+      "KV cache: 3827.8 MB (28 layers, 2086 blocks, 16 tokens/block)"
+    ],
+    "scores": [
+      "- Micro-average F1-score without MISC tags: 30.64% \u00b1 1.39%",
+      "- Micro-average F1-score: 26.32% \u00b1 1.08%",
+      "- Micro-average F1-score without MISC tags: 36.37% \u00b1 2.54%",
+      "- Micro-average F1-score: 31.51% \u00b1 2.02%"
+    ],
+    "logprobs_requested": false,
+    "structured_requested": true,
+    "fallback": false,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [
+      254.0,
+      160.0
+    ],
+    "completed_benchmarks": [
+      "2"
+    ],
+    "memory": {
+      "samples": 202,
+      "peak_aggregate_rss_mib": 4681.234375,
+      "min_available_gib": 25.296661376953125,
+      "peak_pressure": 1,
+      "swap_start_mib": 12024.31,
+      "swap_end_mib": 10728.44,
+      "swap_delta_mib": -1295.869999999999,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 12545.0,
+    "peak_footprint_time": "2026-11-25 08:11:14+00:00",
+    "peak_footprint_pids": {
+      "28329": 1281.0,
+      "28390": 11264.0
+    }
+  },
+  "s2-capped-A-hellaswag": {
+    "start": "2026-11-25 08:04:29+00:00",
+    "end": "2026-11-25 08:10:10+00:00",
+    "exit": "0",
+    "time_s": 341.12,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.15, usable_metal=8.35GB, model_memory=1.19GB, overhead=0.84GB, kv_budget=6.32GB, per_block_bytes=1835008, num_blocks=3443, max_tokens_cached=55088",
+      "KV cache: 6317.9 MB (28 layers, 3443 blocks, 16 tokens/block)"
+    ],
+    "scores": [
+      "- Matthew's Correlation Coefficient: 11.86% \u00b1 2.78%",
+      "- Accuracy: 31.72% \u00b1 1.66%",
+      "- Matthew's Correlation Coefficient: 18.66% \u00b1 2.30%",
+      "- Accuracy: 37.50% \u00b1 1.93%"
+    ],
+    "logprobs_requested": true,
+    "structured_requested": true,
+    "fallback": true,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [
+      0.0,
+      11.0
+    ],
+    "completed_benchmarks": [
+      "2"
+    ],
+    "memory": {
+      "samples": 167,
+      "peak_aggregate_rss_mib": 4613.09375,
+      "min_available_gib": 23.540481567382812,
+      "peak_pressure": 1,
+      "swap_start_mib": 13811.12,
+      "swap_end_mib": 12024.31,
+      "swap_delta_mib": -1786.8100000000013,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 18509.0,
+    "peak_footprint_time": "2026-11-25 08:09:29+00:00",
+    "peak_footprint_pids": {
+      "26834": 17408.0,
+      "26767": 1101.0
+    }
+  },
+  "s2-capped-A-squad": {
+    "start": "2026-11-25 08:17:04+00:00",
+    "end": "2026-11-25 08:20:50+00:00",
+    "exit": "0",
+    "time_s": 225.57,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.15, usable_metal=8.35GB, model_memory=3.77GB, overhead=0.84GB, kv_budget=3.75GB, per_block_bytes=1835008, num_blocks=2041, max_tokens_cached=32656",
+      "KV cache: 3745.3 MB (28 layers, 2041 blocks, 16 tokens/block)"
+    ],
+    "scores": [
+      "- F1-score: 59.51% \u00b1 0.78%",
+      "- Exact Match: 40.56% \u00b1 1.15%",
+      "- F1-score: 58.32% \u00b1 1.35%",
+      "- Exact Match: 44.33% \u00b1 1.17%"
+    ],
+    "logprobs_requested": false,
+    "structured_requested": false,
+    "fallback": false,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [
+      0.0,
+      0.0
+    ],
+    "completed_benchmarks": [
+      "2"
+    ],
+    "memory": {
+      "samples": 110,
+      "peak_aggregate_rss_mib": 3888.984375,
+      "min_available_gib": 25.463729858398438,
+      "peak_pressure": 1,
+      "swap_start_mib": 10728.44,
+      "swap_end_mib": 10728.44,
+      "swap_delta_mib": 0.0,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 12440.0,
+    "peak_footprint_time": "2026-11-25 08:20:05+00:00",
+    "peak_footprint_pids": {
+      "30908": 11264.0,
+      "30848": 1176.0
+    }
+  },
+  "s2-capped-A-sst5": {
+    "start": "2026-11-25 07:58:24+00:00",
+    "end": "2026-11-25 08:04:29+00:00",
+    "exit": "0",
+    "time_s": 364.26,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.15, usable_metal=8.35GB, model_memory=1.19GB, overhead=0.84GB, kv_budget=6.32GB, per_block_bytes=1835008, num_blocks=3443, max_tokens_cached=55088",
+      "KV cache: 6317.9 MB (28 layers, 3443 blocks, 16 tokens/block)"
+    ],
+    "scores": [
+      "- Matthew's Correlation Coefficient: 38.48% \u00b1 3.39%",
+      "- Macro-average F1-score: 49.96% \u00b1 2.37%",
+      "- Matthew's Correlation Coefficient: 54.65% \u00b1 4.23%",
+      "- Macro-average F1-score: 60.51% \u00b1 3.31%"
+    ],
+    "logprobs_requested": true,
+    "structured_requested": true,
+    "fallback": true,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [
+      40.0,
+      36.0
+    ],
+    "completed_benchmarks": [
+      "2"
+    ],
+    "memory": {
+      "samples": 179,
+      "peak_aggregate_rss_mib": 4451.546875,
+      "min_available_gib": 26.904922485351562,
+      "peak_pressure": 1,
+      "swap_start_mib": 14810.06,
+      "swap_end_mib": 13811.12,
+      "swap_delta_mib": -998.9399999999987,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 16529.0,
+    "peak_footprint_time": "2026-11-25 07:59:53+00:00",
+    "peak_footprint_pids": {
+      "25052": 15360.0,
+      "24961": 1169.0
+    }
+  },
+  "s3-corrected-headroom-1": {
+    "start": "2026-11-25 08:42:23.993498+00:00",
+    "end": "2026-11-25 08:43:40.463437+00:00",
+    "exit": "0",
+    "time_s": 75.45,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.5521949663079302, usable_metal=30.74GB, model_memory=1.19GB, overhead=0.84GB, kv_budget=28.71GB, per_block_bytes=1835008, num_blocks=15643, max_tokens_cached=250288",
+      "KV cache: 28705.0 MB (28 layers, 15643 blocks, 16 tokens/block)"
+    ],
+    "scores": [
+      "- Matthew's Correlation Coefficient: 35.51%",
+      "- Macro-average F1-score: 46.40%",
+      "- Matthew's Correlation Coefficient: 49.91%",
+      "- Macro-average F1-score: 56.02%"
+    ],
+    "logprobs_requested": true,
+    "structured_requested": true,
+    "fallback": true,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [
+      1.0,
+      8.0
+    ],
+    "completed_benchmarks": [
+      "2"
+    ],
+    "memory": {
+      "samples": 37,
+      "peak_aggregate_rss_mib": 3697.59375,
+      "min_available_gib": 8.6451416015625,
+      "peak_pressure": 1,
+      "swap_start_mib": 10252.12,
+      "swap_end_mib": 10252.12,
+      "swap_delta_mib": 0.0,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 38679.42794036865,
+    "peak_footprint_time": "2026-11-25 08:43:19+00:00",
+    "peak_footprint_pids": {
+      "38429": 37534.67574310303,
+      "38362": 1144.752197265625
+    }
+  },
+  "s3-sweep-0.3": {
+    "start": "2026-11-25 07:54:49+00:00",
+    "end": "2026-11-25 07:55:52+00:00",
+    "exit": "0",
+    "time_s": 62.87,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.15, usable_metal=8.35GB, model_memory=3.70GB, overhead=0.84GB, kv_budget=3.81GB, per_block_bytes=1835008, num_blocks=2077, max_tokens_cached=33232",
+      "KV cache: 3811.3 MB (28 layers, 2077 blocks, 16 tokens/block)"
+    ],
+    "scores": [
+      "- Matthew's Correlation Coefficient: 32.42%",
+      "- Macro-average F1-score: 41.99%",
+      "- Matthew's Correlation Coefficient: 66.14%",
+      "- Macro-average F1-score: 68.10%"
+    ],
+    "logprobs_requested": true,
+    "structured_requested": true,
+    "fallback": true,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [
+      0.0,
+      1.0
+    ],
+    "completed_benchmarks": [
+      "2"
+    ],
+    "memory": {
+      "samples": 32,
+      "peak_aggregate_rss_mib": 3874.8125,
+      "min_available_gib": 36.465789794921875,
+      "peak_pressure": 1,
+      "swap_start_mib": 15956.06,
+      "swap_end_mib": 15378.12,
+      "swap_delta_mib": -577.9399999999987,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 9124.0,
+    "peak_footprint_time": "2026-11-25 07:55:36+00:00",
+    "peak_footprint_pids": {
+      "23832": 1117.0,
+      "23920": 8007.0
+    }
+  },
+  "s3-sweep-0.5": {
+    "start": "2026-11-25 07:56:14+00:00",
+    "end": "2026-11-25 07:57:19+00:00",
+    "exit": "0",
+    "time_s": 65.27,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.15, usable_metal=8.35GB, model_memory=1.19GB, overhead=0.84GB, kv_budget=6.32GB, per_block_bytes=1835008, num_blocks=3443, max_tokens_cached=55088",
+      "KV cache: 6317.9 MB (28 layers, 3443 blocks, 16 tokens/block)"
+    ],
+    "scores": [
+      "- Matthew's Correlation Coefficient: 28.67%",
+      "- Macro-average F1-score: 41.97%",
+      "- Matthew's Correlation Coefficient: 54.27%",
+      "- Macro-average F1-score: 57.48%"
+    ],
+    "logprobs_requested": true,
+    "structured_requested": true,
+    "fallback": true,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [
+      2.0,
+      4.0
+    ],
+    "completed_benchmarks": [
+      "2"
+    ],
+    "memory": {
+      "samples": 32,
+      "peak_aggregate_rss_mib": 4326.40625,
+      "min_available_gib": 31.3355712890625,
+      "peak_pressure": 1,
+      "swap_start_mib": 15146.12,
+      "swap_end_mib": 14890.12,
+      "swap_delta_mib": -256.0,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 14438.0,
+    "peak_footprint_time": "2026-11-25 07:57:06+00:00",
+    "peak_footprint_pids": {
+      "24273": 1126.0,
+      "24376": 13312.0
+    }
+  },
+  "s3-sweep-0.8": {
+    "start": "2026-11-25 07:57:19+00:00",
+    "end": "2026-11-25 07:58:24+00:00",
+    "exit": "0",
+    "time_s": 65.07,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.15, usable_metal=8.35GB, model_memory=3.70GB, overhead=0.84GB, kv_budget=3.81GB, per_block_bytes=1835008, num_blocks=2077, max_tokens_cached=33232",
+      "KV cache: 3811.3 MB (28 layers, 2077 blocks, 16 tokens/block)"
+    ],
+    "scores": [
+      "- Matthew's Correlation Coefficient: 30.55%",
+      "- Macro-average F1-score: 41.65%",
+      "- Matthew's Correlation Coefficient: 52.43%",
+      "- Macro-average F1-score: 55.87%"
+    ],
+    "logprobs_requested": true,
+    "structured_requested": true,
+    "fallback": true,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [
+      1.0,
+      5.0
+    ],
+    "completed_benchmarks": [
+      "2"
+    ],
+    "memory": {
+      "samples": 33,
+      "peak_aggregate_rss_mib": 4236.4375,
+      "min_available_gib": 35.80328369140625,
+      "peak_pressure": 1,
+      "swap_start_mib": 14890.12,
+      "swap_end_mib": 14810.06,
+      "swap_delta_mib": -80.06000000000131,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 10721.0,
+    "peak_footprint_time": "2026-11-25 07:58:07+00:00",
+    "peak_footprint_pids": {
+      "24721": 9600.0,
+      "24657": 1121.0
+    }
+  },
+  "s4-interrupt-verified": {
+    "start": "2026-11-25 08:47:00.429005+00:00",
+    "end": "2026-11-25 08:48:32.404814+00:00",
+    "exit": "1",
+    "time_s": null,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.5521949663079302, usable_metal=30.74GB, model_memory=1.19GB, overhead=0.84GB, kv_budget=28.71GB, per_block_bytes=1835008, num_blocks=15643, max_tokens_cached=250288",
+      "KV cache: 28705.0 MB (28 layers, 15643 blocks, 16 tokens/block)"
+    ],
+    "scores": [],
+    "logprobs_requested": false,
+    "structured_requested": false,
+    "fallback": false,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [],
+    "completed_benchmarks": [],
+    "memory": {
+      "samples": 45,
+      "peak_aggregate_rss_mib": 3910.796875,
+      "min_available_gib": 10.038955688476562,
+      "peak_pressure": 1,
+      "swap_start_mib": 10252.12,
+      "swap_end_mib": 10252.12,
+      "swap_delta_mib": 0.0,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 33605.505516052246,
+    "peak_footprint_time": "2026-11-25 08:47:51+00:00",
+    "peak_footprint_pids": {
+      "39938": 32320.753158569336,
+      "39847": 1284.7523574829102
+    }
+  },
+  "s4-two-models": {
+    "start": "2026-11-25 08:38:37+00:00",
+    "end": "2026-11-25 08:40:54+00:00",
+    "exit": "0",
+    "time_s": 136.8,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.15, usable_metal=8.35GB, model_memory=3.68GB, overhead=0.84GB, kv_budget=3.83GB, per_block_bytes=1835008, num_blocks=2086, max_tokens_cached=33376",
+      "KV cache: 3827.8 MB (28 layers, 2086 blocks, 16 tokens/block)",
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.15, usable_metal=8.35GB, model_memory=0.72GB, overhead=0.82GB, kv_budget=6.80GB, per_block_bytes=655360, num_blocks=10378, max_tokens_cached=166048",
+      "KV cache: 6801.3 MB (32 layers, 10378 blocks, 16 tokens/block)"
+    ],
+    "scores": [
+      "- Matthew's Correlation Coefficient: 35.51%",
+      "- Macro-average F1-score: 46.40%",
+      "- Matthew's Correlation Coefficient: 52.43%",
+      "- Macro-average F1-score: 55.87%",
+      "- Matthew's Correlation Coefficient: 0.00%",
+      "- Macro-average F1-score: 14.79%",
+      "- Matthew's Correlation Coefficient: 0.00%",
+      "- Macro-average F1-score: 14.79%"
+    ],
+    "logprobs_requested": true,
+    "structured_requested": true,
+    "fallback": true,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [
+      1.0,
+      5.0,
+      0.0,
+      0.0
+    ],
+    "completed_benchmarks": [
+      "4"
+    ],
+    "memory": {
+      "samples": 67,
+      "peak_aggregate_rss_mib": 4231.546875,
+      "min_available_gib": 23.939376831054688,
+      "peak_pressure": 1,
+      "swap_start_mib": 10552.44,
+      "swap_end_mib": 10252.12,
+      "swap_delta_mib": -300.3199999999997,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 11817.380424499512,
+    "peak_footprint_time": "2026-11-25 08:40:48+00:00",
+    "peak_footprint_pids": {
+      "37301": 1173.017936706543,
+      "37662": 10644.362487792969
+    }
+  },
+  "s4-verified-two-models": {
+    "start": "2026-11-25 08:44:46.439044+00:00",
+    "end": "2026-11-25 08:46:38.891499+00:00",
+    "exit": "0",
+    "time_s": 112.27,
+    "allocations": [
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.5521949663079302, usable_metal=30.74GB, model_memory=3.68GB, overhead=0.84GB, kv_budget=26.22GB, per_block_bytes=1835008, num_blocks=14286, max_tokens_cached=228576",
+      "KV cache: 26214.9 MB (28 layers, 14286 blocks, 16 tokens/block)",
+      "Paged attention memory breakdown: metal_limit=55.66GB, fraction=0.5521949663079302, usable_metal=30.74GB, model_memory=1.53GB, overhead=0.82GB, kv_budget=28.38GB, per_block_bytes=655360, num_blocks=43309, max_tokens_cached=692944",
+      "KV cache: 28383.0 MB (32 layers, 43309 blocks, 16 tokens/block)"
+    ],
+    "scores": [
+      "- Matthew's Correlation Coefficient: 28.67%",
+      "- Macro-average F1-score: 41.97%",
+      "- Matthew's Correlation Coefficient: 49.91%",
+      "- Macro-average F1-score: 56.02%",
+      "- Matthew's Correlation Coefficient: 0.00%",
+      "- Macro-average F1-score: 14.79%",
+      "- Matthew's Correlation Coefficient: 0.00%",
+      "- Macro-average F1-score: 14.79%"
+    ],
+    "logprobs_requested": true,
+    "structured_requested": true,
+    "fallback": true,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [],
+    "reported_num_failed_instances_by_shot": [
+      2.0,
+      8.0,
+      0.0,
+      0.0
+    ],
+    "completed_benchmarks": [
+      "4"
+    ],
+    "memory": {
+      "samples": 54,
+      "peak_aggregate_rss_mib": 4338.46875,
+      "min_available_gib": 11.7049560546875,
+      "peak_pressure": 1,
+      "swap_start_mib": 10252.12,
+      "swap_end_mib": 10252.12,
+      "swap_delta_mib": 0.0,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 31653.818244934082,
+    "peak_footprint_time": "2026-11-25 08:45:20+00:00",
+    "peak_footprint_pids": {
+      "39116": 30580.175399780273,
+      "39006": 1073.6428451538086
+    }
+  },
+  "s5-unsupported": {
+    "start": "2026-11-25 08:40:54+00:00",
+    "end": "2026-11-25 08:41:42+00:00",
+    "exit": "1",
+    "time_s": 48.35,
+    "allocations": [],
+    "scores": [],
+    "logprobs_requested": false,
+    "structured_requested": false,
+    "fallback": false,
+    "reasoning_disabled_gap": false,
+    "canary_lines": [],
+    "errors": [
+      "ValueError: Cannot resolve model dimensions: num_kv_heads (num_key_value_heads / n_kv_heads), head_dim. Available keys: ['conv_kernel', 'hidden_size', 'intermediate_size', 'mixer_rms_eps', 'model_type', 'num_hidden_layers', 'state_size', 'tie_word_embeddings', 'time_step_rank', 'use_bcdt_rms', 'use_bias', 'use_conv_bias', 'vocab_size']",
+      "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}"
+    ],
+    "reported_num_failed_instances_by_shot": [],
+    "completed_benchmarks": [],
+    "memory": {
+      "samples": 24,
+      "peak_aggregate_rss_mib": 2333.578125,
+      "min_available_gib": 34.89839172363281,
+      "peak_pressure": 1,
+      "swap_start_mib": 10252.12,
+      "swap_end_mib": 10252.12,
+      "swap_delta_mib": 0.0,
+      "swap_peak_increase_mib": 0.0
+    },
+    "peak_sampled_aggregate_footprint_mib": 1855.1135635375977,
+    "peak_footprint_time": "2026-11-25 08:41:34+00:00",
+    "peak_footprint_pids": {
+      "37938": 821.9706268310547,
+      "38063": 1033.142936706543
+    }
+  }
+}

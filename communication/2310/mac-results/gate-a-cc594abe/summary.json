@@ -1,0 +1,39 @@
+{
+  "gate": "A",
+  "commit": "cc594abe4203db850d9edd9216596a1834d2a87e",
+  "outcome": "FAIL at A1; stopped per brief",
+  "install": "PASS on unchanged retry after uv local Git-cache copy error",
+  "A1": {
+    "exit": 1,
+    "stop_reason": null,
+    "leftover_owned_pids": [],
+    "peak_pressure": 1,
+    "swap_delta_mib": 0.0,
+    "min_available_gib": 25.067306518554688,
+    "peak_footprint_mib": 27534.694831848145,
+    "started_at": 1795605848.271287,
+    "ended_at": 1795605932.34551,
+    "harness_error": null,
+    "cleanup_signals": [],
+    "footprints_are_independent": true
+  },
+  "A2": "unproven; not run after A1 failure",
+  "A3": "unproven; not run after A1 failure",
+  "A4": "unproven; not run after A1 failure",
+  "A5": "not triggered; requires A1 pass and A2 or A3 failure",
+  "u": {
+    "available": 34446508032,
+    "cap": 55662788608,
+    "usable": 33372766208,
+    "u": 0.4796
+  },
+  "exception": "RuntimeError: Prebuilt native extension not found at /Users/daniel/Developer/EuroEval-2310/.venv/lib/python3.12/site-packages/vllm_metal/metal/_paged_ops.cpython-312-darwin.so. Install a vllm-metal release wheel (which ships it prebuilt), or set VLLM_METAL_BUILD_FROM_SOURCE=1 to compile it from source (requires Xcode command-line tools).",
+  "upstream_file": "vllm_metal/metal/__init__.py:232",
+  "wrapper_file": "src/euroeval/benchmark_modules/vllm.py:2271",
+  "sample_count": 43,
+  "max_sample_interval_seconds": 2.0336267948150635,
+  "product_code_changed": false,
+  "lock_changed": false,
+  "live_broker_run": false,
+  "posted": false
+}
