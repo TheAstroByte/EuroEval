@@ -14,9 +14,9 @@ The operator tells you which part to run:
   broker is involved.
 - **Part B: worker acceptance.** Runs after push 2, which has the worker changes and has
   passed Gate A. It runs against the **current production broker**.
-  - The broker changes (provenance 3, eligibility 4a, declines 4b) are not deployed until
-    Dan merges and deploys. Record those rows as **pending deploy**, not as passed.
-  - The worker's optional `supported_architectures` field is ignored by today's broker.
+  - The broker changes (provenance 3, declines 4b) are not deployed until Dan merges and
+    deploys. Record those rows as **pending deploy**, not as passed. Change 4a was
+    dropped.
     That is safe.
 
 ## Rules
@@ -369,10 +369,10 @@ PY
    `state-spaces/mamba-130m-hf`.
    - **Oversized:** the worker must never receive a lease for it. This is enforced today
      by the existing fit check.
-   - **Unsupported:** record what happens. Today's broker has neither the 4a filter nor
-     4b declines, so expect the existing 3 failed attempts followed by release. The
-     worker must keep running (change 5). Mark the "not re-leased" part **pending
-     deploy**.
+   - **Unsupported:** record what happens. Today's broker has no 4b declines, so expect
+     the existing 3 failed attempts followed by a release as `evaluation_failed`. The
+     worker must keep running (change 5); that part is checkable now. Mark the "not
+     re-leased" part **pending deploy**.
    - If the operator cannot arrange fixtures, mark the rows **unproven**.
 8. **Mid-size headroom.** Run
    `python3 $RUN/h.py b8-7b $EE --model Qwen/Qwen2.5-7B-Instruct --dataset sst5 --num-iterations 1 --gpu-memory-utilization $U`.
@@ -381,7 +381,7 @@ PY
    literally, using this clone and `make install`. Record any step that was wrong or
    missing.
 10. **Pending deploy.** Do not report these as passed: the `unattested` digest in the
-    manifest (3), claim-time filtering (4a), and the no-re-lease decline (4b).
+    manifest (3) and the no-re-lease decline (4b).
 
 ## Report
 
@@ -390,6 +390,8 @@ PY
    - the branch commit, the pins, and `u` with its inputs;
    - a row per numbered item: **pass**, **fail**, **unproven** or **pending deploy**,
      with the key evidence line;
+   - in the Part A comment, the "Why v0.30.0 and not newer" paragraph from the plan's
+     "Version choice record" section, copied verbatim;
    - any gaps.
 2. **Get approval.** Show the comment to the operator. Post it only after approval:
    `gh issue comment 2310 --repo EuroEval/EuroEval --body-file $RUN/comment.md`.

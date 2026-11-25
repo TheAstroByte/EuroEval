@@ -20,11 +20,9 @@ The Mac then ran A2–A4 at the exact same commit with a fresh `u=0.5983` (avail
 
 ## Next action
 
-**Mac, 2026-11-25:** A2–A4 completed and recorded in `mac-results/gate-a-72bd08c5-a2a4/` (draft comment, handoff, summary, per-run results, checksummed evidence archive). The issue comment is a draft only; posting waits for operator approval after Sol review.
+**Implementation machine, 2026-11-25:** changes 1–6 are pushed to `feat/2310-apple-gpu-worker` at `3b88d131`. Change 4a was dropped by the operator. Every commit passed Sol review. See [the Part B request](implementation-notes/2026-11-25-3b88d131-part-b-request.md).
 
-**Implementation machine, 2026-11-25:** Gate A reviewed and **accepted**; see [the note](implementation-notes/2026-11-25-72bd08c5-gate-a-accepted.md). It confirms the A2–A4 claims against the raw logs. Changes 1–6 are being implemented for one PR, with one operator check-in before the Part B push.
-
-**Part B remains excluded** until the operator authorizes it after Gate A review. The worker-acceptance question (whether the long-lived worker process survives the teardown diagnostic across leases) is exactly what Part B tests.
+**Mac:** when the operator instructs, run Setup and Part B at `3b88d131` into `mac-results/part-b-3b88d131/`, following that note. Broker rows 3 (`unattested`) and 4b (no re-lease) stay **pending deploy** until Dan merges and deploys. The open runtime question is whether the long-lived worker survives the shutdown segfault across leases.
 
 Use the [Mac run brief](briefs/2026-11-25-mac-run-brief.md) together with the [operator's updates](briefs/2026-11-25-mac-run-updates.md). The update selects v0.30.0, requires the supplied pins paragraph in the report, and records the independent footprint-sampling adjustment.
 
