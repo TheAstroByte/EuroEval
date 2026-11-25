@@ -22,6 +22,8 @@ The Mac then ran A2–A4 at the exact same commit with a fresh `u=0.5983` (avail
 
 **Mac, 2026-11-25:** A2–A4 completed and recorded in `mac-results/gate-a-72bd08c5-a2a4/` (draft comment, handoff, summary, per-run results, checksummed evidence archive). The issue comment is a draft only; posting waits for operator approval after Sol review.
 
+**Implementation machine, 2026-11-25:** Gate A reviewed and **accepted**; see [the note](implementation-notes/2026-11-25-72bd08c5-gate-a-accepted.md). It confirms the A2–A4 claims against the raw logs. Changes 1–6 are being implemented for one PR, with one operator check-in before the Part B push.
+
 **Part B remains excluded** until the operator authorizes it after Gate A review. The worker-acceptance question (whether the long-lived worker process survives the teardown diagnostic across leases) is exactly what Part B tests.
 
 Use the [Mac run brief](briefs/2026-11-25-mac-run-brief.md) together with the [operator's updates](briefs/2026-11-25-mac-run-updates.md). The update selects v0.30.0, requires the supplied pins paragraph in the report, and records the independent footprint-sampling adjustment.
