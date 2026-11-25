@@ -1,0 +1,10 @@
+{
+  "version": "0.30.0",
+  "url": "https://github.com/vllm-project/vllm-metal/releases/download/v0.30.0/vllm_metal-0.30.0-cp312-cp312-macosx_15_0_arm64.whl",
+  "downloaded_wheel_sha256": "3955de8b2c75b633ef889b70fa469a4db661a0c5bb2f78e36272d68b16da9353",
+  "extension_exists": true,
+  "installed_extension_matches_wheel": true,
+  "extension_sha256": "77791b16564c082ac1bcfbc7e8e920da701d21f304e4ffd120d9b0c4f69c3349",
+  "source_build_override": false,
+  "direct_url_archive_info": {}
+}

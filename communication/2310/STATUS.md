@@ -8,19 +8,22 @@ Coordination branch: `coord/2310` in the same fork.
 
 ## Current handoff
 
-**Gate A failed at A1 on `cc594abe4203db850d9edd9216596a1834d2a87e`.**
+**Gate A is not passed at A1 on `72bd08c5cbebbb804f985ee192ffc8bc9b9579a8`.**
 
-The Darwin vLLM/vllm-metal v0.30.0 pair installed on retry. Qwen3-0.6B then loaded its weights on Metal but failed at KV-cache startup because the Git-installed package lacks `_paged_ops.cpython-312-darwin.so`. The exception is raised at upstream `vllm_metal/metal/__init__.py:232`.
+The release wheel fixes the missing native extension from `cc594abe`. Fresh `make install` completed, the extension check printed `True`, the wheel checksum matched the implementation note, and the installed `.so` matched the wheel byte for byte. The vLLM/vllm-metal pair remains v0.30.0/v0.30.0 on Darwin.
 
-A1 exited 1 with normal pressure, zero swap growth, and no owned PIDs left. The persisted inference fraction for that attempt was `u=0.4796`. A2, A3, and A4 were not run because the brief requires stopping after A1 fails. Gate A has not passed. Part B has not started.
+A1 loaded native Metal kernels and completed both SST-5 shot modes at the fresh persisted `u=0.5498`. Its outer exit was 0, pressure stayed 1, swap growth was 0 MiB, and no owned PIDs remained. Two observations prevent a clean gate result:
 
-The error names a release wheel or `VLLM_METAL_BUILD_FROM_SOURCE=1` as possible installation paths. Neither workaround has been tested on the Mac. The implementation machine owns the next change; the Mac made no implementation or lock changes.
+- The required `metal_limit` log has zero matches. The default upstream cache-layout path logs a 28.57 GB KV budget instead. Source inspection shows an MLX cap lookup, but this is not the required runtime cap-log evidence.
+- After `Metal worker shutdown complete`, the log prints `Segfault encountered`, with `TVMFFIEnvRegisterCAPI` and `at::accelerator::emptyHostCache()` frames. The outer CLI still reports completion and exits 0. The faulting process and root cause have not been isolated.
+
+A2-A4 were not run after the unmet A1 gate. A5's feature-reproduction branch was not triggered. Part B has not started. The Mac made no implementation or lock changes.
 
 ## Next action
 
-**Implementation machine, 2026-11-25:** the missing native artifact is addressed at `72bd08c5`. vllm-metal is now installed from its v0.30.0 release wheel, which ships `_paged_ops.cpython-312-darwin.so`, and it is gated on macOS + Python 3.12. See [the note](implementation-notes/2026-11-25-72bd08c5-vllm-metal-wheel.md) for the change, its verification and the requested rerun.
+The implementation machine's [wheel-install request](implementation-notes/2026-11-25-72bd08c5-vllm-metal-wheel.md) has been executed. See the [new handoff](mac-results/gate-a-72bd08c5/handoff.md) and [draft issue comment](mac-results/gate-a-72bd08c5/issue-comment-draft.md).
 
-**Mac:** rerun Gate A from Setup at `72bd08c5` when the operator instructs. Use a fresh clone, a fresh `u`, and the result directory `mac-results/gate-a-72bd08c5/`. Add the native-extension check that the note asks for.
+The next implementation task is to reconcile A1's cap-evidence criterion with the default cache-layout logging and investigate the teardown diagnostic. vLLM `distributed/parallel_state.py:2467` has a matching host-cache cleanup call; it is a source lead, not a proven cause. The Mac waits for the next operator task. Further tests use a new result directory and a fresh persisted `u`; Part B remains excluded until Gate A passes and the operator authorises it.
 
 Use the [Mac run brief](briefs/2026-11-25-mac-run-brief.md) together with the [operator's updates](briefs/2026-11-25-mac-run-updates.md). The update selects v0.30.0, requires the supplied pins paragraph in the report, and records the independent footprint-sampling adjustment.
 
@@ -30,6 +33,7 @@ Use the [Mac run brief](briefs/2026-11-25-mac-run-brief.md) together with the [o
 |---|---|---|---|---|
 | Step 0 | `6b9d201edecdd7e2d744f7f04ba42ad1e714916d` | Memory-control and inference-feature gaps; canary and cleanup evidence collected | [Findings](mac-results/step0-6b9d201e/findings.md), [handoff](mac-results/step0-6b9d201e/handoff.md), [bundle](mac-results/step0-6b9d201e/evidence.tar.gz) | [Posted with approval](https://github.com/EuroEval/EuroEval/issues/2310#issuecomment-7157791009) |
 | Gate A | `cc594abe4203db850d9edd9216596a1834d2a87e` | A1 failed; A2-A4 unproven | [Draft comment](mac-results/gate-a-cc594abe/issue-comment-draft.md), [handoff](mac-results/gate-a-cc594abe/handoff.md), [result](mac-results/gate-a-cc594abe/a1-memory.result.json), [bundle](mac-results/gate-a-cc594abe/evidence.tar.gz) | Draft shared here; not posted to the issue |
+| Gate A rerun | `72bd08c5cbebbb804f985ee192ffc8bc9b9579a8` | Wheel fixed; A1 cap evidence unproven and native teardown diagnostic; A2-A4 unproven | [Draft comment](mac-results/gate-a-72bd08c5/issue-comment-draft.md), [handoff](mac-results/gate-a-72bd08c5/handoff.md), [result](mac-results/gate-a-72bd08c5/a1-memory.result.json), [bundle](mac-results/gate-a-72bd08c5/evidence.tar.gz) | Draft shared here; not posted to the issue |
 
 The Step 0 controls and scripts are historical. Further tests follow the current brief. Each evidence bundle has a neighbouring SHA-256 file. Archived handoff files describe the state when the archive was made; this status file records current publication and next steps.
 

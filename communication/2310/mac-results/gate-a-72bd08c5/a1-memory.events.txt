@@ -1,0 +1,17 @@
+MLX-LM model loaded in 0.60s: Qwen/Qwen3-0.6B
+Paged attention: using --gpu-memory-utilization=0.55
+Upstream cache layout: reporting 28.57 GB KV budget; runtime allocation deferred until vLLM KVCacheConfig
+Native paged-attention Metal kernels loaded
+KV cache config received: 15570 grouped blocks (MLX layout initialized from vLLM config)
+[DEBUG] 2026-11-25 12:53:06 · Using logprobs as evaluation strategy for the model, with the following mapping from labels to their first token: {'positive': 'positive', 'neutral': 'neutral', 'negative': 'negative'}.
+Benchmarking:   0%|——————————| 0/1 [00:00<?, ?it/s][DEBUG] 2026-11-25 12:53:08 · Using structured generation with the JSON labels: ['positive', 'neutral', 'negative'].
+- Matthew's Correlation Coefficient: 28.91%
+- Macro-average F1-score: 40.43%
+- Matthew's Correlation Coefficient: 56.41%
+- Macro-average F1-score: 59.39%
+Metal worker shutdown complete
+!!!!!!! Segfault encountered !!!!!!!
+  File "<unknown>", line 0, in TVMFFIEnvRegisterCAPI
+  File "<unknown>", line 0, in at::accelerator::emptyHostCache()
+Completed 2 benchmarks
+/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown

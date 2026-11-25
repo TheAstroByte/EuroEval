@@ -1,0 +1,169 @@
+Started EuroEval run.
+
+Fetching model configurations:   0%|——————————| 0/1 [00:00<?, ?it/s][DEBUG] 2026-11-25 12:52:32 · Using the model cache directory '.euroeval_cache/model_cache/Qwen--Qwen3-0.6B' for the model 'Qwen/Qwen3-0.6B'.
+[DEBUG] 2026-11-25 12:52:36 · The model 'Qwen/Qwen3-0.6B#no-thinking' was identified by the VLLMModel benchmark module.
+
+Fetching model configurations: 100%|▰▰▰▰▰▰▰▰▰▰| 1/1 [00:05<00:00,  5.28s/it]
+
+Loading the model Qwen/Qwen3-0.6B...
+[DEBUG] 2026-11-25 12:52:41 · Beginning-of-sequence token was not set, but detected it as '<s>' with ID 128245.
+[DEBUG] 2026-11-25 12:52:41 · Detected generative type 'INSTRUCTION_TUNED' for model 'Qwen/Qwen3-0.6B'
+W1125 12:52:48.163000 53490 torch/_library/triton.py:53] Triton not available, find_triton_kernels = []
+Metal: chunked prefill enabled (paged attention), max_num_batched_tokens=8192
+Metal memory: 68.7GB total, 39.3GB available
+MLX device set to: Device(gpu, 0)
+mx.metal.device_info is deprecated and will be removed in a future version. Use mx.device_info instead.
+Set Metal wired_limit to 51.8 GB
+PyTorch device set to: mps
+MLX-LM model loaded in 0.60s: Qwen/Qwen3-0.6B
+Paged attention: using --gpu-memory-utilization=0.55
+Upstream cache layout: reporting 28.57 GB KV budget; runtime allocation deferred until vLLM KVCacheConfig
+Native paged-attention Metal kernels loaded
+Shared attention cache: 15570 blocks, 26.61 GiB across 28 Metal regions
+KV cache config received: 15570 grouped blocks (MLX layout initialized from vLLM config)
+Warming up model...
+Model warm-up complete
+Warming up v2 paged-attention Metal kernels...
+Paged-attention Metal kernel warm-up complete
+Metal: chunked prefill enabled (paged attention), max_num_batched_tokens=8192
+Metal memory: 68.7GB total, 13.1GB available
+    ↳ The model Qwen/Qwen3-0.6B has 751,632,384 parameters, a vocabulary size of 151,936, and a maximum context length of 40,960.
+[DEBUG] 2026-11-25 12:53:05 · The tokeniser has a chat template, so assuming that the model is instruction tuned.
+The model 'Qwen/Qwen3-0.6B' did not generate any end-of-reasoning tokens in the prompt or the completion, even though it generated the beginning-of-reasoning tokens ['<think>']. This is probably not correct, so please report this issue.
+[DEBUG] 2026-11-25 12:53:05 · Detected end-of-chat token IDs as [151645, 198], corresponding to tokens ['<|im_end|>', 'Ċ'].
+[DEBUG] 2026-11-25 12:53:06 · Found no custom stop tokens for model 'Qwen/Qwen3-0.6B'.
+[DEBUG] 2026-11-25 12:53:06 · Using logprobs as evaluation strategy for the model, with the following mapping from labels to their first token: {'positive': 'positive', 'neutral': 'neutral', 'negative': 'negative'}.
+
+[2026-11-25 12:53:06]
+Zero-shot benchmarking Qwen/Qwen3-0.6B#no-thinking on the validation split of the truncated version of the English sentiment classification dataset SST-5 (1/2 benchmarks)...
+
+Preparing datasets:   0%|——————————| 0/1 [00:00<?, ?it/s]
+Preparing datasets: 100%|▰▰▰▰▰▰▰▰▰▰| 1/1 [00:00<00:00,  1.39it/s]
+
+
+Benchmarking:   0%|——————————| 0/1 [00:00<?, ?it/s][DEBUG] 2026-11-25 12:53:08 · Using structured generation with the JSON labels: ['positive', 'neutral', 'negative'].
+[DEBUG] 2026-11-25 12:53:08 · Using temperature=0.6 with the model 'Qwen/Qwen3-0.6B' as specified in its generation configuration.
+[DEBUG] 2026-11-25 12:53:08 · Using top_p=0.95 with the model 'Qwen/Qwen3-0.6B' as specified in its generation configuration.
+[DEBUG] 2026-11-25 12:53:08 · Using top_k=20 with the model 'Qwen/Qwen3-0.6B' as specified in its generation configuration.
+[DEBUG] 2026-11-25 12:53:08 · Truncation of prompts for model 'Qwen/Qwen3-0.6B' is not needed, so skipping truncation.
+
+
+Rendering prompts:   0%|——————————| 0/170 [00:00<?, ?it/s]
+
+
+
+Processed prompts:   0%|——————————| 0/170 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+
+Processed prompts:   1%|——————————| 1/170 [00:18<51:31, 18.29s/it, est. speed input: 4.54 toks/s, output: 0.38 toks/s]
+
+Processed prompts:   8%|——————————| 13/170 [00:19<02:55,  1.12s/it, est. speed input: 46.30 toks/s, output: 4.62 toks/s]
+
+Processed prompts:  78%|▰▰▰▰▰▰▰———| 133/170 [00:20<00:02, 12.49it/s, est. speed input: 451.54 toks/s, output: 46.38 toks/s]
+
+Processed prompts: 100%|▰▰▰▰▰▰▰▰▰▰| 170/170 [00:20<00:00, 12.49it/s, est. speed input: 579.57 toks/s, output: 59.28 toks/s]
+
+
+
+Caching model outputs:   0%|——————————| 0/170 [00:00<?, ?it/s]
+
+                                                              [DEBUG] 2026-11-25 12:53:32 · Test scores for iteration 0: {'mcc': 0.28906424085782667, 'macro_f1': 0.4043274732929905, 'failed_instances': []}
+
+Benchmarking: 100%|▰▰▰▰▰▰▰▰▰▰| 1/1 [00:24<00:00, 24.81s/it]
+
+Finished benchmarking Qwen/Qwen3-0.6B#no-thinking on the truncated version of the English sentiment classification dataset SST-5.
+- Matthew's Correlation Coefficient: 28.91%
+- Macro-average F1-score: 40.43%
+[DEBUG] 2026-11-25 12:53:33 · Results:
+{'raw': [{'mcc': 0.28906424085782667, 'macro_f1': 0.4043274732929905, 'failed_instances': []}], 'total': {'test_mcc': 28.906424085782668, 'test_mcc_se': nan, 'test_macro_f1': 40.432747329299055, 'test_macro_f1_se': nan, 'num_failed_instances': 0.0}}
+
+[2026-11-25 12:53:33]
+Few-shot benchmarking Qwen/Qwen3-0.6B#no-thinking on the validation split of the truncated version of the English sentiment classification dataset SST-5 (2/2 benchmarks)...
+
+Preparing datasets:   0%|——————————| 0/1 [00:00<?, ?it/s]
+Preparing datasets: 100%|▰▰▰▰▰▰▰▰▰▰| 1/1 [00:00<00:00,  6.11it/s]
+
+
+Benchmarking:   0%|——————————| 0/1 [00:00<?, ?it/s]
+
+Rendering prompts:   0%|——————————| 0/170 [00:00<?, ?it/s]
+
+Rendering prompts:  54%|▰▰▰▰▰—————| 91/170 [00:00<00:00, 900.60it/s]
+
+
+
+Processed prompts:   0%|——————————| 0/170 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+
+Processed prompts:   1%|——————————| 1/170 [00:07<22:13,  7.89s/it, est. speed input: 122.56 toks/s, output: 0.89 toks/s]
+
+Processed prompts:   1%|——————————| 2/170 [00:09<11:23,  4.07s/it, est. speed input: 206.93 toks/s, output: 1.51 toks/s]
+
+Processed prompts:   6%|——————————| 10/170 [00:10<01:48,  1.48it/s, est. speed input: 890.54 toks/s, output: 6.56 toks/s]
+
+Processed prompts:  11%|▰—————————| 19/170 [00:12<00:56,  2.69it/s, est. speed input: 1499.56 toks/s, output: 11.04 toks/s]
+
+Processed prompts:  16%|▰—————————| 27/170 [00:13<00:41,  3.48it/s, est. speed input: 1910.50 toks/s, output: 14.06 toks/s]
+
+Processed prompts:  21%|▰▰————————| 36/170 [00:14<00:31,  4.29it/s, est. speed input: 2310.23 toks/s, output: 17.00 toks/s]
+
+Processed prompts:  26%|▰▰————————| 44/170 [00:16<00:26,  4.69it/s, est. speed input: 2581.00 toks/s, output: 19.00 toks/s]
+
+Processed prompts:  31%|▰▰▰———————| 53/170 [00:17<00:22,  5.20it/s, est. speed input: 2862.30 toks/s, output: 21.07 toks/s]
+
+Processed prompts:  36%|▰▰▰———————| 62/170 [00:18<00:19,  5.57it/s, est. speed input: 3103.34 toks/s, output: 22.85 toks/s]
+
+Processed prompts:  41%|▰▰▰▰——————| 70/170 [00:20<00:17,  5.63it/s, est. speed input: 3266.08 toks/s, output: 24.05 toks/s]
+
+Processed prompts:  46%|▰▰▰▰——————| 79/170 [00:21<00:15,  5.89it/s, est. speed input: 3456.04 toks/s, output: 25.41 toks/s]
+
+Processed prompts:  51%|▰▰▰▰▰—————| 87/170 [00:23<00:14,  5.86it/s, est. speed input: 3579.31 toks/s, output: 26.31 toks/s]
+
+Processed prompts:  56%|▰▰▰▰▰—————| 96/170 [00:24<00:12,  6.06it/s, est. speed input: 3727.54 toks/s, output: 27.41 toks/s]
+
+Processed prompts:  61%|▰▰▰▰▰▰————| 104/170 [00:25<00:10,  6.23it/s, est. speed input: 3851.24 toks/s, output: 28.31 toks/s]
+
+Processed prompts:  66%|▰▰▰▰▰▰————| 113/170 [00:26<00:07,  7.90it/s, est. speed input: 4107.83 toks/s, output: 30.20 toks/s]
+
+Processed prompts:  71%|▰▰▰▰▰▰▰———| 121/170 [00:26<00:05,  9.50it/s, est. speed input: 4328.97 toks/s, output: 31.83 toks/s]
+
+Processed prompts:  76%|▰▰▰▰▰▰▰———| 130/170 [00:26<00:03, 11.85it/s, est. speed input: 4590.35 toks/s, output: 33.75 toks/s]
+
+Processed prompts:  81%|▰▰▰▰▰▰▰▰——| 138/170 [00:27<00:02, 14.19it/s, est. speed input: 4822.71 toks/s, output: 35.45 toks/s]
+
+Processed prompts:  86%|▰▰▰▰▰▰▰▰——| 147/170 [00:27<00:01, 17.83it/s, est. speed input: 5094.55 toks/s, output: 37.46 toks/s]
+
+Processed prompts:  91%|▰▰▰▰▰▰▰▰▰—| 155/170 [00:27<00:00, 20.74it/s, est. speed input: 5328.90 toks/s, output: 39.17 toks/s]
+
+Processed prompts: 100%|▰▰▰▰▰▰▰▰▰▰| 170/170 [00:27<00:00, 20.74it/s, est. speed input: 5832.16 toks/s, output: 42.86 toks/s]
+
+
+
+Caching model outputs:   0%|——————————| 0/170 [00:00<?, ?it/s]
+
+                                                              [DEBUG] 2026-11-25 12:54:02 · Test scores for iteration 0: {'mcc': 0.5640870862973268, 'macro_f1': 0.5939357292179485, 'failed_instances': []}
+
+Benchmarking: 100%|▰▰▰▰▰▰▰▰▰▰| 1/1 [00:28<00:00, 28.34s/it]
+
+Finished benchmarking Qwen/Qwen3-0.6B#no-thinking on the truncated version of the English sentiment classification dataset SST-5.
+- Matthew's Correlation Coefficient: 56.41%
+- Macro-average F1-score: 59.39%
+[DEBUG] 2026-11-25 12:54:02 · Results:
+{'raw': [{'mcc': 0.5640870862973268, 'macro_f1': 0.5939357292179485, 'failed_instances': []}], 'total': {'test_mcc': 56.408708629732686, 'test_mcc_se': nan, 'test_macro_f1': 59.39357292179485, 'test_macro_f1_se': nan, 'num_failed_instances': 0.0}}
+Metal worker shutdown complete
+!!!!!!! Segfault encountered !!!!!!!
+  File "<unknown>", line 0, in TVMFFIEnvRegisterCAPI
+  File "<unknown>", line 0, in at::accelerator::emptyHostCache()
+  File "<unknown>", line 0, in void pybind11::cpp_function::initialize<torch::accelerator::initModule(_object*)::$_11, void, pybind11::name, pybind11::scope, pybind11::sibling>(torch::accelerator::initModule(_object*)::$_11&&, void (*)(), pybind11::name const&, pybind11::scope const&, pybind11::sibling const&)::'lambda'(pybind11::detail::function_call&)::__invoke(pybind11::detail::function_call&)
+  File "<unknown>", line 0, in pybind11::cpp_function::dispatcher(_object*, _object* const*, unsigned long, _object*)
+  File "<unknown>", line 0, in cfunction_vectorcall_FASTCALL_KEYWORDS.llvm.1526037623938414138
+  File "<unknown>", line 0, in _PyEval_EvalFrameDefault
+  File "<unknown>", line 0, in PyEval_EvalCode
+  File "<unknown>", line 0, in run_mod.llvm.3095048572294013801
+  File "<unknown>", line 0, in PyRun_SimpleStringFlags
+  File "<unknown>", line 0, in Py_RunMain
+  File "<unknown>", line 0, in pymain_main
+  File "<unknown>", line 0, in Py_BytesMain
+
+
+Completed 2 benchmarks
+/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

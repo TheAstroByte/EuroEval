@@ -1,0 +1,18 @@
+!!!!!!! Segfault encountered !!!!!!!
+  File "<unknown>", line 0, in TVMFFIEnvRegisterCAPI
+  File "<unknown>", line 0, in at::accelerator::emptyHostCache()
+  File "<unknown>", line 0, in void pybind11::cpp_function::initialize<torch::accelerator::initModule(_object*)::$_11, void, pybind11::name, pybind11::scope, pybind11::sibling>(torch::accelerator::initModule(_object*)::$_11&&, void (*)(), pybind11::name const&, pybind11::scope const&, pybind11::sibling const&)::'lambda'(pybind11::detail::function_call&)::__invoke(pybind11::detail::function_call&)
+  File "<unknown>", line 0, in pybind11::cpp_function::dispatcher(_object*, _object* const*, unsigned long, _object*)
+  File "<unknown>", line 0, in cfunction_vectorcall_FASTCALL_KEYWORDS.llvm.1526037623938414138
+  File "<unknown>", line 0, in _PyEval_EvalFrameDefault
+  File "<unknown>", line 0, in PyEval_EvalCode
+  File "<unknown>", line 0, in run_mod.llvm.3095048572294013801
+  File "<unknown>", line 0, in PyRun_SimpleStringFlags
+  File "<unknown>", line 0, in Py_RunMain
+  File "<unknown>", line 0, in pymain_main
+  File "<unknown>", line 0, in Py_BytesMain
+
+
+Completed 2 benchmarks
+/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

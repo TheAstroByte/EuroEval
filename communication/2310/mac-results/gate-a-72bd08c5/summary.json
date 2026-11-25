@@ -1,0 +1,55 @@
+{
+  "commit": "72bd08c5cbebbb804f985ee192ffc8bc9b9579a8",
+  "outcome": "Gate A not passed: required A1 metal_limit log unproven; native shutdown segfault diagnostic observed",
+  "setup": "PASS; first-attempt make install and wheel/native verification",
+  "wheel_check": {
+    "version": "0.30.0",
+    "url": "https://github.com/vllm-project/vllm-metal/releases/download/v0.30.0/vllm_metal-0.30.0-cp312-cp312-macosx_15_0_arm64.whl",
+    "downloaded_wheel_sha256": "3955de8b2c75b633ef889b70fa469a4db661a0c5bb2f78e36272d68b16da9353",
+    "extension_exists": true,
+    "installed_extension_matches_wheel": true,
+    "extension_sha256": "77791b16564c082ac1bcfbc7e8e920da701d21f304e4ffd120d9b0c4f69c3349",
+    "source_build_override": false,
+    "direct_url_archive_info": {}
+  },
+  "u": {
+    "available": 39326466048,
+    "cap": 55662788608,
+    "usable": 38252724224,
+    "u": 0.5498
+  },
+  "A1": {
+    "runtime": {
+      "exit": 0,
+      "stop_reason": null,
+      "leftover_owned_pids": [],
+      "peak_pressure": 1,
+      "swap_delta_mib": 0.0,
+      "min_available_gib": 12.140716552734375,
+      "peak_footprint_mib": 33411.68350982666,
+      "started_at": 1795607503.590177,
+      "ended_at": 1795607645.662577,
+      "harness_error": null,
+      "cleanup_signals": [],
+      "footprints_are_independent": true
+    },
+    "runtime_safety": "pass",
+    "required_metal_limit_log": "unproven: zero matches",
+    "scoring_completed": true,
+    "scores": [
+      "- Matthew's Correlation Coefficient: 28.91%",
+      "- Macro-average F1-score: 40.43%",
+      "- Matthew's Correlation Coefficient: 56.41%",
+      "- Macro-average F1-score: 59.39%"
+    ],
+    "classification_fallback_count": 0,
+    "native_shutdown_diagnostic": "Segfault encountered; TVMFFIEnvRegisterCAPI and at::accelerator::emptyHostCache frames; faulting process and root cause not isolated"
+  },
+  "A2": "unproven; not run because A1 did not fully pass",
+  "A3": "unproven; not run because A1 did not fully pass",
+  "A4": "unproven; not run because A1 did not fully pass",
+  "A5": "not triggered; requires A1 pass and A2 or A3 failure",
+  "code_changes": false,
+  "live_broker": false,
+  "issue_posted": false
+}

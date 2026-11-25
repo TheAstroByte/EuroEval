@@ -1,0 +1,111 @@
+   927	    def determine_available_memory(self) -> int:
+   928	        """Return scheduler-visible available cache memory."""
+   929	        mode = self._worker.model_runner.scheduler_memory_reporting_mode()
+   930
+   931	        if mode == "stt_nominal":
+   932	            logger.info("STT model: reporting nominal memory for scheduler")
+   933	            return STT_SCHED_AVAILABLE_BYTES
+   934
+   935	        if mode == "paged_attention_capacity":
+   936	            overhead = self._worker.model_runner.profile_run()
+   937	            self.setup_paged_attention(overhead=overhead)
+   938	            backend = self._worker.model_runner.paged_attention_runtime
+   939	            if backend is None:
+   940	                raise RuntimeError(
+   941	                    "Paged attention backend not initialized for capacity reporting"
+   942	                )
+   943	            block_size_bytes = self._worker.get_cache_block_size_bytes()
+   944	            available = backend.num_blocks() * block_size_bytes
+   945	            logger.info(
+   946	                "Paged attention: reporting MPS cache capacity "
+   947	                "(%d blocks × %d bytes = %.2f GB)",
+   948	                backend.num_blocks(),
+   949	                block_size_bytes,
+   950	                available / 1e9,
+   951	            )
+   952	            return available
+   953
+   954	        if mode == "paged_attention_layout_budget":
+   955	            overhead = self._worker.model_runner.profile_run()
+   956	            budget = self.base_kv_budget_bytes(
+   957	                metal_limit=self._metal_limit_bytes(),
+   958	                fraction=self._memory_fraction(),
+   959	                model_memory=self.get_model_memory_usage(),
+   960	                overhead=overhead,
+   961	            )
+   962	            budget -= self._worker.model_runner.draft_scratch_reserve_bytes()
+   963	            logger.info(
+   964	                "Upstream cache layout: reporting %.2f GB KV budget; "
+   965	                "runtime allocation deferred until vLLM KVCacheConfig",
+   966	                budget / 1e9,
+   967	            )
+   968	            return budget
+  1040	    def _memory_fraction(self) -> float:
+  1041	        """Resolve the paged KV memory fraction from ``--gpu-memory-utilization``."""
+  1042	        fraction = self._worker.vllm_config.cache_config.gpu_memory_utilization
+  1043	        logger.info(
+  1044	            "Paged attention: using --gpu-memory-utilization=%.2f",
+  1045	            fraction,
+  1046	        )
+  1047	        return fraction
+  1048
+  1049	    def _metal_limit_bytes(self) -> int:
+  1050	        device_info = mx.device_info()
+  1051	        metal_limit = int(device_info.get("max_recommended_working_set_size", 0))
+  1052	        if metal_limit <= 0:
+  1053	            raise RuntimeError(
+  1054	                "Paged attention: mx.device_info() did not return "
+  1055	                "max_recommended_working_set_size. "
+  1056	                "Ensure MLX is up to date and running on Apple Silicon. "
+  1057	                f"Reported device_info keys: {list(device_info.keys())}"
+  1058	            )
+  1059	        return metal_limit
+  2426
+  2427
+  2428	def cleanup_dist_env_and_memory(shutdown_ray: bool = False):
+  2429	    logger.debug(
+  2430	        "[shutdown] Distributed: cleanup start shutdown_ray=%s",
+  2431	        shutdown_ray,
+  2432	    )
+  2433	    # Reset environment variable cache
+  2434	    envs.disable_envs_cache()
+  2435
+  2436	    # Reset rocm_aiter_ops class variables to match current os.environ.
+  2437	    # These are class-level attributes that persist across tests and are
+  2438	    # NOT restored by monkeypatch (which only restores os.environ).
+  2439	    from vllm.platforms import current_platform
+  2440
+  2441	    if current_platform.is_rocm():
+  2442	        from vllm._aiter_ops import rocm_aiter_ops
+  2443
+  2444	        rocm_aiter_ops.refresh_env_variables()
+  2445
+  2446	    # Ensure all objects are not frozen before cleanup
+  2447	    gc.unfreeze()
+  2448
+  2449	    destroy_model_parallel()
+  2450	    destroy_distributed_environment()
+  2451	    if shutdown_ray:
+  2452	        import ray  # Lazy import Ray
+  2453
+  2454	        ray.shutdown()
+  2455	    gc.collect()
+  2456	    from vllm.platforms import current_platform
+  2457
+  2458	    if not current_platform.is_cpu():
+  2459	        from vllm.triton_utils import HAS_TRITON
+  2460
+  2461	        if HAS_TRITON:
+  2462	            from vllm.v1.sample.ops.topk_topp_triton import reset_buffer_cache
+  2463
+  2464	            reset_buffer_cache()
+  2465	        torch.accelerator.empty_cache()
+  2466	        try:
+  2467	            torch.accelerator.empty_host_cache()
+  2468	        except AttributeError:
+  2469	            logger.warning(
+  2470	                "torch.accelerator.empty_host_cache() only available in Pytorch >=2.9"
+  2471	            )
+  2472
+  2473	    logger.debug_once("[shutdown] Distributed: cleanup complete")
+  2474
