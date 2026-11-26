@@ -1,0 +1,28 @@
+{
+  "t_discover": [
+    1795672435.855565,
+    1795672435.912263
+  ],
+  "report": "HardwareReport(architecture='arm64', ram_bytes=68719476736, free_disk_bytes=879474966528, driver_version=None, cuda_version=None, pytorch_version='2.13.0', gpus=(Gpu(name='Apple M3 Max', uuid='metal-0', free_memory_bytes=39635828736, total_memory_bytes=55662788608, compute_capability=None, index=0),), gpu_memory_utilisation=0.8, selected_gpu_index=0, selected_gpu_uuid='metal-0')",
+  "gpus": [
+    {
+      "name": "Apple M3 Max",
+      "uuid": "metal-0",
+      "index": 0,
+      "total": 55662788608,
+      "free": 39635828736
+    }
+  ],
+  "ram_bytes": 68719476736,
+  "sysctl_memsize": 68719476736,
+  "ram_match": true,
+  "n_gpus": 1,
+  "uuid_is_metal0": true,
+  "total_equals_cap": true,
+  "cap": 55662788608,
+  "available_at_snapshot": 40709341184,
+  "expected_free": 39635599360,
+  "free": 39635828736,
+  "free_within_2pct": true,
+  "architecture": "arm64"
+}

@@ -1,0 +1,13 @@
+== extension check (expect True) ==
+True
+== vllm-metal direct_url ==
+{"url":"https://github.com/vllm-project/vllm-metal/releases/download/v0.30.0/vllm_metal-0.30.0-cp312-cp312-macosx_15_0_arm64.whl","archive_info":{}}
+== wheel sha256 in uv.lock ==
+    { name = "vllm-metal", marker = "python_full_version < '3.13' and sys_platform == 'darwin'" },
+]
+generative = [
+    { name = "bitsandbytes", marker = "sys_platform == 'linux'" },
+--
+    { name = "vllm-metal", marker = "python_full_version < '3.13' and sys_platform == 'darwin'" },
+]
+gliner = [

@@ -1,0 +1,4 @@
+2026-11-26 08:01:28,548 INFO Preserving active lease LkgF3EifhwDQHCBHenE4N3ki for restart
+2026-11-26 08:01:28,550 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 08:02:07,390 INFO Preserving active lease Ab6izB6USa_bphJB5Albefi9 for restart
+2026-11-26 08:02:07,391 INFO Worker stopped

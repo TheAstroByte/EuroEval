@@ -1,0 +1,21 @@
+== host ==
+Darwin Daniels-MacBook-Pro.local 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:05:42 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6031 arm64
+ProductName:		macOS
+ProductVersion:		27.0.1
+BuildVersion:		26A434
+68719476736
+Apple M3 Max
+== git ==
+3b88d131128d49a4a141d15268acd88280a6b920
+ M package-lock.json
+== tools ==
+uv 0.13.10 (e3e7c1eac 2026-11-24 aarch64-apple-darwin)
+== versions ==
+euroeval 18.4.0.dev
+vllm 0.30.0+cpu
+vllm-metal 0.30.0
+mlx 0.32.1
+torch 2.13.0
+transformers 5.14.1
+== mlx cap ==
+55662788608

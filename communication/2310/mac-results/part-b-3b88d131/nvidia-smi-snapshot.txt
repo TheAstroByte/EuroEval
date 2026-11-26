@@ -1,0 +1,5 @@
+Checked 2026-11-26T07:24:34.297331+00:00
+Command: pgrep -fl nvidia-smi
+Exit: 1
+Output: none
+This is a post-run process snapshot, not tracing of subprocess launches during B1.

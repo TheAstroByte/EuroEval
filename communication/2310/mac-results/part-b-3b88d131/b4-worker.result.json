@@ -1,0 +1,23 @@
+{
+  "exit": 130,
+  "stop_reason": "operator signal 2",
+  "leftover_owned_pids": [],
+  "peak_pressure": 1,
+  "swap_delta_mib": 0.0,
+  "min_available_gib": 34.99241638183594,
+  "peak_footprint_mib": 725.7211303710938,
+  "started_at": 1795676471.32745,
+  "ended_at": 1795676527.641324,
+  "harness_error": null,
+  "cleanup_signals": [
+    {
+      "signal": "SIGINT",
+      "t": 1795676527.371783,
+      "pids": [
+        22163,
+        22164
+      ]
+    }
+  ],
+  "footprints_are_independent": true
+}

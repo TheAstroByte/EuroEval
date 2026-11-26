@@ -1,0 +1,89 @@
+{
+  "run": "part-b-3b88d131",
+  "tested_commit": "3b88d131128d49a4a141d15268acd88280a6b920",
+  "branch": "feat/2310-apple-gpu-worker",
+  "host": {
+    "machine": "Apple M3 Max",
+    "ram_bytes": 68719476736,
+    "os": "macOS 27.0.1 (Darwin 27.0.0 arm64)"
+  },
+  "pins": {
+    "euroeval": "18.4.0.dev",
+    "vllm": "0.30.0+cpu",
+    "vllm-metal": "0.30.0 release wheel",
+    "mlx": "0.32.1",
+    "torch": "2.13.0",
+    "transformers": "5.14.1",
+    "python": "3.12.13",
+    "uv": "0.13.10"
+  },
+  "extension_check": true,
+  "u": {
+    "available": 40639905792,
+    "cap": 55662788608,
+    "usable": 39566163968,
+    "u": 0.5687
+  },
+  "setup": {
+    "clone": "/Users/daniel/Developer/EuroEval-2310-3b88d131",
+    "make_install_exit": 0,
+    "state_dir": "~/.euroeval-worker-2310 (fresh)",
+    "run_dir": "/tmp/ee-2310-partB-3b88d131"
+  },
+  "results": {
+    "B1_hardware": {
+      "status": "pass",
+      "detail": "one GPU metal-0; total=cap=55662788608; free=39635828736 vs min(cap,avail-1GiB)=39635599360 (0.0006%); ram_bytes==sysctl hw.memsize; post-run pgrep snapshot: none, not continuous launch tracing"
+    },
+    "B2_auth_two_leases": {
+      "status": "blocked/unproven",
+      "detail": "The complete worker log records 51 incompatible-model safety skips. All 15 sampled lease identities were thinkingmachines/Inkling-2-Mini (lv); the remaining skips have no model identity recorded. The sampled model has model_type inkling2_loop, unknown to Transformers 5.14.1. No lease reached evaluation or finalisation. The worker continued after safety skips, supporting change 5 on the fresh-lease path only. It was stopped via SIGINT to the harness (exit 130, operator signal 2, no leftover owned PIDs, unrelated sleep survived). Two-model finalisation, footprint drop and cross-lease teardown remain unproven."
+    },
+    "B3_scope_coverage": {
+      "status": "unproven",
+      "detail": "no finalised records exist; scope for lv/generative = task groups [multiple_choice_classification, question_answering, sequence_classification, text_to_text, token_classification] per api/worker/scope-policy.json"
+    },
+    "B4_auth_reuse": {
+      "status": "pass",
+      "detail": "Restart showed zero device-flow prompt lines; saved credential reused immediately; bounded SIGINT stop clean (exit 130, no leftovers). The log preserves an active lease on shutdown, so resumable state remains locally."
+    },
+    "B5_interrupt_resume": {
+      "status": "unproven",
+      "detail": "requires a live evaluation; none ever started because every queued lease failed the safety preflight"
+    },
+    "B6_upload_retry": {
+      "status": "unproven",
+      "detail": "requires a submitting lease with acknowledged records; none occurred; no-duplicate-request live check also unproven (code path runtime.py:897-904 + unit tests only)"
+    },
+    "B7_unsupported_oversized": {
+      "status": "unproven",
+      "detail": "operator: no fixtures available; not fabricated. Natural observation: safety-preflight failures release unsafe_model and the worker keeps running (fresh path); not-re-leased pending deploy (4b)"
+    },
+    "B8_direct_7b": {
+      "status": "pass",
+      "detail": "exit 0, stop_reason null, peak_pressure 1, swap_delta 0.0 MiB, no leftover PIDs; --gpu-memory-utilization=0.57 logged; SST5 both shot modes MCC 56.80%/62.19%, zero failed instances; one 'Segfault encountered' at engine shutdown after all scores (known upstream diagnostic, non-fatal here); peak footprint 34639 MiB; duration ~12.3 min"
+    },
+    "B9_docs": {
+      "status": "pass_with_gaps",
+      "detail": "Direct execution (no Docker) section followed literally; gaps recorded in b9-docs.md"
+    },
+    "B10_pending_deploy": {
+      "status": "pending deploy",
+      "detail": "change 3 unattested digest and change 4b no-re-lease not deployed; change 4a dropped"
+    }
+  },
+  "incompatibility_diagnosis": {
+    "model": "thinkingmachines/Inkling-2-Mini",
+    "revision": "c9d028302cd0f035fdf8e7e91f089a4ce94d2195",
+    "model_type": "inkling2_loop",
+    "transformers": "5.14.1",
+    "error": "ValueError: model type `inkling2_loop` ... Transformers does not recognize this architecture ... version of Transformers is out of date",
+    "consequence": "worker safety preflight SafetyError -> release unsafe_model; project pin transformers>=5.14.0,<5.15.0 (Linux vLLM 0.27.1 constraint) cannot load it"
+  },
+  "timing": {
+    "started_epoch": 1795672460,
+    "b8_end_epoch": 1795677286,
+    "total_live_run_hours_bound": "< 8h (actual ~1.5h)"
+  },
+  "auth_note": "request_secret MCP transport was unavailable in this harness; device-flow sign-in was requested via a thread message + question widget with the one-time code, kept out of all logs/archives; device-flow log lines sanitized to REDACTED in the archive"
+}

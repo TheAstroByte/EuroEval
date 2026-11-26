@@ -1,0 +1,4 @@
+harness=4966 pgid=4970
+UNRELATED 99782 alive before
+SIGINT sent to harness 4966 at 08:00:27
+b4 harness=22159

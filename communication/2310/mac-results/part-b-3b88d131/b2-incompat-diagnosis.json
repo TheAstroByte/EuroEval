@@ -1,0 +1,10 @@
+{
+  "config_path": "/Users/daniel/.cache/huggingface/hub/models--thinkingmachines--Inkling-2-Mini/snapshots/c9d028302cd0f035fdf8e7e91f089a4ce94d2195/config.json",
+  "transformers": "5.14.1",
+  "model_type": "inkling2_loop",
+  "architectures": [
+    "Inkling2LoopForConditionalGeneration"
+  ],
+  "torch_dtype": null,
+  "autoconfig_error": "ValueError: The checkpoint you are trying to load has model type `inkling2_loop` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.\n\nYou can update Transformers with the command `pip install --upgrade transformers`. If this does not work, and the checkpoint is very new, then there may not be a release version that supports this model yet. In this case, you can get the most up-to-date code by installing Transformers from source with the command `pip install git+https://github.com/huggingface/transformers.git`"
+}

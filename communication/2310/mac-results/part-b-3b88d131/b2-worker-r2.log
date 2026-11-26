@@ -1,0 +1,193 @@
+2026-11-26 07:12:13,062 INFO Open https://github.com/login/device and enter code REDACTED
+2026-11-26 07:21:16,733 INFO Authenticated broker account TheAstroByte
+2026-11-26 07:22:25,168 WARNING Broker claim retries exhausted; retrying
+Traceback (most recent call last):
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/broker.py", line 538, in _http_request
+    with urllib.request.urlopen(request, timeout=30) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 521, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 630, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 559, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 639, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/runtime.py", line 406, in _claim_continuously
+    result = self._claim_with_reauthentication(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/runtime.py", line 472, in _claim_with_reauthentication
+    raise retry_error
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/runtime.py", line 450, in _claim_with_reauthentication
+    return credential, self.client.claim(
+                       ^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/broker.py", line 88, in claim
+    result = self._post("claim", payload, credential=credential)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/broker.py", line 117, in _post
+    result = self._request("POST", f"{self.server}/{path}", headers, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/broker.py", line 542, in _http_request
+    raise BrokerError(
+euroeval_worker.broker.BrokerError: Claim discovery deadline exceeded; retry claim.
+2026-11-26 07:23:05,847 INFO Preserving active lease hVMjNixRBocMCz6gcJmOqeFQ for restart
+2026-11-26 07:23:05,847 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:23:44,774 INFO Preserving active lease Bh-Z1HfHdd97hFt54hNe9Pc1 for restart
+2026-11-26 07:23:44,774 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:25:25,094 WARNING Broker claim retries exhausted; retrying
+Traceback (most recent call last):
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/broker.py", line 538, in _http_request
+    with urllib.request.urlopen(request, timeout=30) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 521, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 630, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 559, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/Users/daniel/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/urllib/request.py", line 639, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/runtime.py", line 406, in _claim_continuously
+    result = self._claim_with_reauthentication(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/runtime.py", line 472, in _claim_with_reauthentication
+    raise retry_error
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/runtime.py", line 450, in _claim_with_reauthentication
+    return credential, self.client.claim(
+                       ^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/broker.py", line 88, in claim
+    result = self._post("claim", payload, credential=credential)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/broker.py", line 117, in _post
+    result = self._request("POST", f"{self.server}/{path}", headers, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/daniel/Developer/EuroEval-2310-3b88d131/src/euroeval_worker/broker.py", line 542, in _http_request
+    raise BrokerError(
+euroeval_worker.broker.BrokerError: Claim discovery deadline exceeded; retry claim.
+2026-11-26 07:26:33,727 INFO Preserving active lease zDdt1VwyBPpfajZaP1aIBe0K for restart
+2026-11-26 07:26:33,727 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:27:12,835 INFO Preserving active lease TedB34LelmIaT-Cvi59t6Pu7 for restart
+2026-11-26 07:27:12,836 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:27:52,077 INFO Preserving active lease 3ldqKVh37hPvHXKcHP5aNBie for restart
+2026-11-26 07:27:52,077 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:28:31,460 INFO Preserving active lease Y2NPXssvQajv0g0tffyB2BcJ for restart
+2026-11-26 07:28:31,460 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:29:16,453 INFO Preserving active lease 7bAhyABvW39urJ2fiflELDqa for restart
+2026-11-26 07:29:16,454 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:30:00,867 INFO Preserving active lease 53GTtkXdMpBgxQUHE2wHp7sV for restart
+2026-11-26 07:30:00,867 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:30:40,038 INFO Preserving active lease AZSqG3hVvU6VEHpB2ojCKK0N for restart
+2026-11-26 07:30:40,038 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:31:18,992 INFO Preserving active lease BhGZsqrQ07LSCkYfWdfXjrqy for restart
+2026-11-26 07:31:18,992 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:31:58,983 INFO Preserving active lease TtasU4zhK7u4ihtPlVu4yPPn for restart
+2026-11-26 07:31:58,984 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:32:43,545 INFO Preserving active lease OMOilZ8kLM2NKriXZoKcPPKD for restart
+2026-11-26 07:32:43,545 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:33:22,343 INFO Preserving active lease TFKNWgXaCPlDDnfBepAl1B-X for restart
+2026-11-26 07:33:22,344 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:34:01,965 INFO Preserving active lease R0bDAw8Km4rxO_nUNKTWt2s3 for restart
+2026-11-26 07:34:01,966 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:34:41,818 INFO Preserving active lease rGrLaXxkwNZZjq6OqpSQco42 for restart
+2026-11-26 07:34:41,818 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:35:21,049 INFO Preserving active lease gkiIbBaFeIOcQP10hjdsEvWm for restart
+2026-11-26 07:35:21,049 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:36:33,591 INFO Preserving active lease VqMMzJMZLYeI0ABfMNd-8Qe2 for restart
+2026-11-26 07:36:33,592 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:37:12,556 INFO Preserving active lease zPWKt1py5SP2J0DXh0xdYKyc for restart
+2026-11-26 07:37:12,557 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:37:56,740 INFO Preserving active lease g1wTUXfQAOfzi5NJEtYpU-xr for restart
+2026-11-26 07:37:56,740 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:38:40,827 INFO Preserving active lease Q87ZJ9oUqgbk8fE1juYzgHdU for restart
+2026-11-26 07:38:40,828 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:39:20,133 INFO Preserving active lease 0_P7_o70jQBww-1Q1C2KGe5t for restart
+2026-11-26 07:39:20,133 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:40:11,690 INFO Preserving active lease 3qhgqPsyeUrVtr92FZM5BqRx for restart
+2026-11-26 07:40:11,690 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:40:50,615 INFO Preserving active lease id_xhOJ8OQ8-KERlY4fWPPHT for restart
+2026-11-26 07:40:50,616 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:41:29,676 INFO Preserving active lease eEovsOVGXwQd-OlKGtc4ENy1 for restart
+2026-11-26 07:41:29,676 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:42:09,046 INFO Preserving active lease gafKx10mLMUjXAkHEncwuB17 for restart
+2026-11-26 07:42:09,046 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:42:48,163 INFO Preserving active lease X8zlzmNP9ItTQ5Tli6nn6YiV for restart
+2026-11-26 07:42:48,164 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:43:32,421 INFO Preserving active lease rxk7RHXIo-h4xo4oIxO69kI- for restart
+2026-11-26 07:43:32,421 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:44:11,736 INFO Preserving active lease 6zqQkxMtFWP-jiO92_w_TiXt for restart
+2026-11-26 07:44:11,737 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:44:50,880 INFO Preserving active lease tZttROsu2_tMNYmfTUWAMYW2 for restart
+2026-11-26 07:44:50,880 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:45:35,709 INFO Preserving active lease TMSJjxdj1GBZTn4TxWhH8A2i for restart
+2026-11-26 07:45:35,710 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:46:14,911 INFO Preserving active lease k3fKrg42_8rUc-uZFa2bURgX for restart
+2026-11-26 07:46:14,911 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:46:59,060 INFO Preserving active lease JQNp5LJyJPbEkpwKO9I-IMbr for restart
+2026-11-26 07:46:59,060 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:47:38,011 INFO Preserving active lease NLn_1m5twQGflRO2R45UBc7I for restart
+2026-11-26 07:47:38,011 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:48:17,310 INFO Preserving active lease T9c7PB1P__pioxvxtNqo1Xhg for restart
+2026-11-26 07:48:17,310 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:48:56,801 INFO Preserving active lease BC1bVQHSSs5A3PlOYXNMnHht for restart
+2026-11-26 07:48:56,802 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:49:41,190 INFO Preserving active lease yrROXHqx-YWITTBH4pjyDICF for restart
+2026-11-26 07:49:41,190 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:50:20,878 INFO Preserving active lease 4pxY8ybFLGbaQv64qFnKZRUB for restart
+2026-11-26 07:50:20,879 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:51:06,547 INFO Preserving active lease fdv-WU5BIl_hTtRdZdbU2qt1 for restart
+2026-11-26 07:51:06,548 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:51:57,252 INFO Preserving active lease KOLrnE5F3UD5e_d35c9mBQwz for restart
+2026-11-26 07:51:57,252 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:52:35,628 INFO Preserving active lease mOsDpZBbCPButYLQoYe_Lqse for restart
+2026-11-26 07:52:35,629 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:53:15,166 INFO Preserving active lease G4HwuLpazB2SirThT8moaX84 for restart
+2026-11-26 07:53:15,166 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:53:54,478 INFO Preserving active lease 0I5cKoSFZkqB0AE272hb7r6P for restart
+2026-11-26 07:53:54,478 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:54:33,444 INFO Preserving active lease 1DXJ52trutK9GdiXilpJVdIi for restart
+2026-11-26 07:54:33,445 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:55:12,556 INFO Preserving active lease pi7bin13AKheXtJiAKB8Tv7H for restart
+2026-11-26 07:55:12,556 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:55:51,863 INFO Preserving active lease Y_Njugj8SJy8oKMpV-2ctxFE for restart
+2026-11-26 07:55:51,864 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:56:31,186 INFO Preserving active lease NqtRE1bXN692H1mRnpzbi7ZB for restart
+2026-11-26 07:56:31,187 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:57:10,353 INFO Preserving active lease lnIjm-0oCejilCZOSlgKB_TO for restart
+2026-11-26 07:57:10,353 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:57:49,445 INFO Preserving active lease JYDXgjsVWk-mqm9dXLTJIW3Z for restart
+2026-11-26 07:57:49,445 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:58:28,387 INFO Preserving active lease 4-yAHNNhiv51IL3CWKvbkgIs for restart
+2026-11-26 07:58:28,387 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:59:18,964 INFO Preserving active lease gMuAHouYvX-6RLmblMcDQcsK for restart
+2026-11-26 07:59:18,965 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 07:59:57,976 INFO Preserving active lease W0_ud4C2DcIj68yC1iU_HTct for restart
+2026-11-26 07:59:57,976 WARNING Skipping work that failed the model safety check: model is not compatible with the installed Transformers stack
+2026-11-26 08:00:28,875 INFO Worker stopped
