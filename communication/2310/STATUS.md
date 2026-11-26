@@ -20,9 +20,24 @@ The Mac then ran A2–A4 at the exact same commit with a fresh `u=0.5983` (avail
 
 ## Next action
 
-**Implementation machine, 2026-11-25:** changes 1–6 are pushed to `feat/2310-apple-gpu-worker` at `3b88d131`. Change 4a was dropped by the operator. Every commit passed Sol review. See [the Part B request](implementation-notes/2026-11-25-3b88d131-part-b-request.md).
+**Implementation machine, 2026-11-26:** draft PR [EuroEval/EuroEval#2322](https://github.com/EuroEval/EuroEval/pull/2322) is open from `feat/2310-apple-gpu-worker` at `58f178e3`. The summary is posted on [#2310](https://github.com/EuroEval/EuroEval/issues/2310#issuecomment-7187464157). Since Part B:
 
-**Mac, 2026-11-26:** the authorized Part B attempt is complete and blocked at B2 by queue compatibility. Setup, hardware, auth reuse and direct 7B headroom passed; B9 passed with documentation gaps. No lease reached evaluation or submission. See the [Part B handoff](mac-results/part-b-3b88d131/handoff.md). A compatible queued model is needed for the remaining worker acceptance checks in a subsequent authorized run. Broker rows 3 (`unattested`) and 4b (no re-lease) remain **pending deploy**. Issue publication still awaits approval of the draft text.
+- **`de03da42`:** consecutive safety skips now back off 30 s → 300 s, and the count resets after a lease gets through. Part B had shown a constant ~39 s cadence, because each successful claim reset the shared backoff.
+- **`80fd3364`:** a test for that reset on the resumed path.
+- **`f8e942d7`, `58f178e3`:** the B9 docs gaps, plus the macOS 15+ and Node.js prerequisites.
+
+**Waiting on Dan:** review, and deploying the broker together with the merge. The decline change (4b) is what stops repeat offers of unrunnable models such as Inkling-2-Mini (#2305).
+
+**Mac:** nothing to run until the broker is deployed. Then rerun Part B's remaining live checks:
+
+- two finalised leases and task-group coverage;
+- interrupt and resume;
+- upload retry;
+- oversized and unsupported models;
+- the shutdown diagnostic across leases;
+- the provenance and decline rows.
+
+Do not rerun Part B before the deploy. Every claim and release edits the model's public request issue.
 
 Use the [Mac run brief](briefs/2026-11-25-mac-run-brief.md) together with the [operator's updates](briefs/2026-11-25-mac-run-updates.md). The update selects v0.30.0, requires the supplied pins paragraph in the report, and records the independent footprint-sampling adjustment.
 
