@@ -1,0 +1,126 @@
+
+== 0. Preflight ==
+date: 2026-11-27T06:40:50Z
+chip: Apple M3 Max
+ram_bytes: 68719476736
+macos: 27.0.1 (26A434)
+commit: 506502fcc4de6c4f4e842c1ebc2d7ba178ea0157
+checkout: /Users/daniel/Developer/worktrees/EuroEval/2310-mac-run-506502fc
+memory pressure level: 1 (1 = normal)
+
+== 1. Checkout at 506502fc ==
+reusing /Users/daniel/Developer/worktrees/EuroEval/2310-mac-run-506502fc
+506502fc docs: tighten the GPU-check, memory-estimate and unattested wording
+
+== 2. make install (press Enter at each .env prompt) ==
+Installing the 'EuroEval' project...
+Updating uv...
+info: Checking for updates...
+success: You're already on version v0.13.10 of uv (the latest version).
+Python 3.12 is already installed
+Resolved 343 packages in 365ms
+Checked 285 packages in 21ms
+Enter your full name, to be shown in Git commits:
+> Enter your email, as registered on your GitHub account:
+> Enter your EuroEval PyPI API token, or leave empty if you do not want to use it:
+> Enter your ScandEval PyPI API token, or leave empty if you do not want to use it:
+> Installing frontend dependencies...
+
+added 78 packages, and audited 79 packages in 792ms
+
+14 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Installed frontend dependencies.
+
+changed 13 packages in 7s
+Installed Vercel CLI.
+Installed the 'EuroEval' project.
+make install exit 0 after 9 s
+ M package-lock.json
+euroeval 18.4.0.dev
+vllm 0.30.0+cpu
+vllm-metal 0.30.0
+mlx 0.32.1
+mlx-lm 0.32.0
+torch 2.13.0
+transformers 5.14.1
+huggingface-hub 1.33.0
+python 3.12.13
+native extension present:
+True
+vllm-metal source:
+{"url":"https://github.com/vllm-project/vllm-metal/releases/download/v0.30.0/vllm_metal-0.30.0-cp312-cp312-macosx_15_0_arm64.whl","archive_info":{}}
+
+== 3. Apple GPU probe ==
+{
+  "pass": true,
+  "checks": {
+    "one_gpu_metal_0": true,
+    "total_equals_mlx_cap": true,
+    "free_within_2pct": true,
+    "ram_equals_hw_memsize": true
+  },
+  "seconds": [
+    5.15,
+    0.55,
+    0.54
+  ],
+  "gpu": {
+    "name": "Apple M3 Max",
+    "uuid": "metal-0",
+    "total": 55662788608,
+    "free": 37919096832
+  },
+  "mlx_cap": 55662788608,
+  "available": 38996443136,
+  "expected_free": 37922701312,
+  "ram_bytes": 68719476736,
+  "hw_memsize": 68719476736,
+  "pytorch_version": "2.13.0"
+}
+VLLM_TARGET_DEVICE=cpu: {"refused": true, "message": "VLLM_TARGET_DEVICE is set to cpu, so vLLM would run on the CPU; unset it to use the Apple GPU"}
+VLLM_PLUGINS=none: {"refused": true, "message": "VLLM_PLUGINS does not include metal, so vLLM would run on the CPU; unset it or add metal"}
+
+== 4. Worker tests on macOS ==
+src/euroeval/prompt_templates/grammatical_error_correction.py         3      0   100%
+src/euroeval/prompt_templates/grammatical_error_detection.py          6      1    83%
+[32m============================= [32m[1m176 passed[0m[32m in 21.42s[0m[32m =============================[0m
+
+== 5. Direct euroeval runs ==
+u=0.5557, vllm-metal budget cap x u = 30.9 GB
+
+== 5. d1-qwen3-0.6b ==
+{"name": "d1-qwen3-0.6b", "harness_pid": 38876, "pgid": 38880, "baseline": {"t": 1795761745.749055, "available": 39761248256, "swap_mib": 6853.5, "pressure": 1}}
+{"exit": 0, "stop_reason": null, "leftover_owned_pids": [], "peak_pressure": 1, "swap_delta_mib": 0.0, "min_available_gib": 9.79931640625, "peak_footprint_mib": 33140.88693237305, "started_at": 1795761745.7510688, "ended_at": 1795761841.908434, "harness_error": null, "cleanup_signals": [], "footprints_are_independent": true}
+Paged attention: using --gpu-memory-utilization=0.56
+Segfault encountered lines: 1
+u=0.6584, vllm-metal budget cap x u = 36.6 GB
+
+== 5. d2-qwen2.5-3b ==
+{"name": "d2-qwen2.5-3b", "harness_pid": 40296, "pgid": 40300, "baseline": {"t": 1795761842.770726, "available": 46903197696, "swap_mib": 6853.5, "pressure": 1}}
+{"exit": 0, "stop_reason": null, "leftover_owned_pids": [], "peak_pressure": 2, "swap_delta_mib": 0.0, "min_available_gib": 5.8112945556640625, "peak_footprint_mib": 39656.67241668701, "started_at": 1795761842.772038, "ended_at": 1795762192.903414, "harness_error": null, "cleanup_signals": [], "footprints_are_independent": true}
+Paged attention: using --gpu-memory-utilization=0.66
+Segfault encountered lines: 1
+
+== 5. d3-encoder-electra-small ==
+{"name": "d3-encoder-electra-small", "harness_pid": 43037, "pgid": 43041, "baseline": {"t": 1795762192.991796, "available": 47432155136, "swap_mib": 6829.5, "pressure": 1}}
+{"exit": 0, "stop_reason": null, "leftover_owned_pids": [], "peak_pressure": 1, "swap_delta_mib": 0.0, "min_available_gib": 39.79972839355469, "peak_footprint_mib": 3393.7691497802734, "started_at": 1795762192.9930618, "ended_at": 1795762341.100105, "harness_error": null, "cleanup_signals": [], "footprints_are_independent": true}
+Segfault encountered lines: 0
+
+== 6. Summary ==
+probe: pass=True seconds=[5.15, 0.55, 0.54] error=None
+VLLM_TARGET_DEVICE=cpu: {"refused": true, "message": "VLLM_TARGET_DEVICE is set to cpu, so vLLM would run on the CPU; unset it to use the Apple GPU"}
+VLLM_PLUGINS=none: {"refused": true, "message": "VLLM_PLUGINS does not include metal, so vLLM would run on the CPU; unset it or add metal"}
+[32m============================= [32m[1m176 passed[0m[32m in 21.42s[0m[32m =============================[0m
+d1-qwen3-0.6b u: {"available": 39741325312, "cap": 55662788608, "usable": 38667583488, "u": 0.5557}
+d2-qwen2.5-3b u: {"available": 46882553856, "cap": 55662788608, "usable": 45808812032, "u": 0.6584}
+d1-qwen3-0.6b: exit=0 stop=None pressure=1 swap_delta_mib=0 min_available_gib=9.8 peak_footprint_mib=33141 leftover=[]
+d2-qwen2.5-3b: exit=0 stop=None pressure=2 swap_delta_mib=0 min_available_gib=5.8 peak_footprint_mib=39657 leftover=[]
+d3-encoder-electra-small: exit=0 stop=None pressure=1 swap_delta_mib=0 min_available_gib=39.8 peak_footprint_mib=3394 leftover=[]
+failures: none
+
+== Done. Results are in /Users/daniel/Developer/EuroEval-2310-coord/communication/2310/mac-results/run-506502fc-64gb ==
+The checkout /Users/daniel/Developer/worktrees/EuroEval/2310-mac-run-506502fc and the downloaded models can be removed afterwards.
+SCRIPT_EXIT=0

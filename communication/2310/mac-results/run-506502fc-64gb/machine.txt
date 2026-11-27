@@ -1,0 +1,6 @@
+date: 2026-11-27T06:40:50Z
+chip: Apple M3 Max
+ram_bytes: 68719476736
+macos: 27.0.1 (26A434)
+commit: 506502fcc4de6c4f4e842c1ebc2d7ba178ea0157
+checkout: /Users/daniel/Developer/worktrees/EuroEval/2310-mac-run-506502fc

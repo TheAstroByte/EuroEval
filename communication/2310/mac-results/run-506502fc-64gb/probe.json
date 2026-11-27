@@ -1,0 +1,26 @@
+{
+  "pass": true,
+  "checks": {
+    "one_gpu_metal_0": true,
+    "total_equals_mlx_cap": true,
+    "free_within_2pct": true,
+    "ram_equals_hw_memsize": true
+  },
+  "seconds": [
+    5.15,
+    0.55,
+    0.54
+  ],
+  "gpu": {
+    "name": "Apple M3 Max",
+    "uuid": "metal-0",
+    "total": 55662788608,
+    "free": 37919096832
+  },
+  "mlx_cap": 55662788608,
+  "available": 38996443136,
+  "expected_free": 37922701312,
+  "ram_bytes": 68719476736,
+  "hw_memsize": 68719476736,
+  "pytorch_version": "2.13.0"
+}

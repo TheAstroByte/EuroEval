@@ -1,0 +1,2 @@
+VLLM_TARGET_DEVICE=cpu: {"refused": true, "message": "VLLM_TARGET_DEVICE is set to cpu, so vLLM would run on the CPU; unset it to use the Apple GPU"}
+VLLM_PLUGINS=none: {"refused": true, "message": "VLLM_PLUGINS does not include metal, so vLLM would run on the CPU; unset it or add metal"}

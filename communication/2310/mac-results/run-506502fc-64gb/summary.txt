@@ -1,0 +1,10 @@
+probe: pass=True seconds=[5.15, 0.55, 0.54] error=None
+VLLM_TARGET_DEVICE=cpu: {"refused": true, "message": "VLLM_TARGET_DEVICE is set to cpu, so vLLM would run on the CPU; unset it to use the Apple GPU"}
+VLLM_PLUGINS=none: {"refused": true, "message": "VLLM_PLUGINS does not include metal, so vLLM would run on the CPU; unset it or add metal"}
+[32m============================= [32m[1m176 passed[0m[32m in 21.42s[0m[32m =============================[0m
+d1-qwen3-0.6b u: {"available": 39741325312, "cap": 55662788608, "usable": 38667583488, "u": 0.5557}
+d2-qwen2.5-3b u: {"available": 46882553856, "cap": 55662788608, "usable": 45808812032, "u": 0.6584}
+d1-qwen3-0.6b: exit=0 stop=None pressure=1 swap_delta_mib=0 min_available_gib=9.8 peak_footprint_mib=33141 leftover=[]
+d2-qwen2.5-3b: exit=0 stop=None pressure=2 swap_delta_mib=0 min_available_gib=5.8 peak_footprint_mib=39657 leftover=[]
+d3-encoder-electra-small: exit=0 stop=None pressure=1 swap_delta_mib=0 min_available_gib=39.8 peak_footprint_mib=3394 leftover=[]
+failures: none
