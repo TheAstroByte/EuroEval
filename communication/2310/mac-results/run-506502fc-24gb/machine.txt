@@ -1,0 +1,6 @@
+date: 2026-11-27T07:22:31Z
+chip: Apple M4 Pro
+ram_bytes: 25769803776
+macos: 27.2.1 (26B131)
+commit: 506502fcc4de6c4f4e842c1ebc2d7ba178ea0157
+checkout: /Users/DLDJ/Developer/worktrees/EuroEval/2310-mac-run-506502fc

@@ -1,0 +1,26 @@
+{
+  "pass": true,
+  "checks": {
+    "one_gpu_metal_0": true,
+    "total_equals_mlx_cap": true,
+    "free_within_2pct": true,
+    "ram_equals_hw_memsize": true
+  },
+  "seconds": [
+    10.44,
+    8.31,
+    4.13
+  ],
+  "gpu": {
+    "name": "Apple M4 Pro",
+    "uuid": "metal-0",
+    "total": 19069665280,
+    "free": 12554977280
+  },
+  "mlx_cap": 19069665280,
+  "available": 13783203840,
+  "expected_free": 12709462016,
+  "ram_bytes": 25769803776,
+  "hw_memsize": 25769803776,
+  "pytorch_version": "2.13.0"
+}

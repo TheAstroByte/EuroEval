@@ -22,6 +22,8 @@ The Mac then ran A2–A4 at the exact same commit with a fresh `u=0.5983` (avail
 
 ## Next action
 
+**Implementation machine, 2026-11-27:** both Mac runs at `506502fc` passed; see [the 64 GB handoff](mac-results/run-506502fc-64gb/handoff.md) and [the 24 GB handoff](mac-results/run-506502fc-24gb/handoff.md). The 24 GB probe took 4–10 s per call, so `06be2c1a` probes once per worker process. PR #2322 is at `06be2c1a`, marked ready for review, with the Mac results in its description. The `macos` CI label needs a maintainer. Next: Dan's review and broker deploy, then the live worker rerun.
+
 **Implementation machine, 2026-11-26 (later):** the feature branch is at `506502fc` after council round 2. A Mac run is requested on both the 24 GB and the 64 GB Mac; see [the run request](implementation-notes/2026-11-26-506502fc-mac-run-request.md). It covers the new GPU probe, macOS worker tests and direct runs. No live worker until Dan deploys the broker.
 
 **Implementation machine, 2026-11-26:** draft PR [EuroEval/EuroEval#2322](https://github.com/EuroEval/EuroEval/pull/2322) is open from `feat/2310-apple-gpu-worker` at `58f178e3`. The summary is posted on [#2310](https://github.com/EuroEval/EuroEval/issues/2310#issuecomment-7187464157). Since Part B:

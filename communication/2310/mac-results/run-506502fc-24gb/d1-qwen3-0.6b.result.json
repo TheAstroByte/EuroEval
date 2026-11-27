@@ -1,0 +1,14 @@
+{
+  "exit": 0,
+  "stop_reason": null,
+  "leftover_owned_pids": [],
+  "peak_pressure": 1,
+  "swap_delta_mib": 0.0,
+  "min_available_gib": 4.2814788818359375,
+  "peak_footprint_mib": 11520.36930847168,
+  "started_at": 1795764761.625587,
+  "ended_at": 1795764973.7104928,
+  "harness_error": null,
+  "cleanup_signals": [],
+  "footprints_are_independent": true
+}
